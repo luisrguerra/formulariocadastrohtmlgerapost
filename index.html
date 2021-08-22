@@ -11,7 +11,6 @@
 
 <head> 
     <title>Formulário</title> 
-    <link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet'>
 
     <style>
@@ -38,21 +37,6 @@
       }
       
     }
-    #titulo_categoria{
-      color:black;
-      font-family: 'Bebas Neue';
-      height: 1em;
-      margin-bottom: 0em;
-      padding: 0em 0em 0em 5%;
-    }
-    #detalhe_linha{
-        background-color: #000;
-        height: 0.3em;
-        width: 8em;
-        margin-left: 5%;
-        margin-top: 1em;
-        margin-bottom: 2.5em;
-    }
     .texto_conteudo{
       color:black;
       padding: 0em 1em 0em 5%;
@@ -73,7 +57,7 @@
         color:black;
         padding: 0em 1em 0em 5%;
         font-family: 'Arimo';
-        height: 7.4em;
+        height: 10.3em;
         overflow: hidden;
         white-space: pre-wrap;
         word-wrap: break-word;
@@ -113,16 +97,7 @@
     
     <div style="margin: 0em 0.5em;" >
          
-         <br><!-- pular linha -->
-         
-        
-         <h5 class="margem_zero">Título da categoria:</h5>
-         <!-- campo de texto -->
-         <div class="preencher_horizontal mdl-textfield mdl-js-textfield"><!-- campo de texto -->
-             <input class="mdl-textfield__input" type="text" id="categoria" maxlength = "35" placeholder="Ex: Procura-se">
-         </div>
-        
-        
+         <br><!-- pular linha -->    
         
          <h5 class="margem_zero">Título:</h5>
          <!-- campo de texto -->
@@ -143,7 +118,7 @@
          <h5 class="margem_zero">Descrição:</h5>
          <!-- campo de texto -->
          <div style="width: auto;" class="mdl-textfield mdl-js-textfield">
-             <textarea style="resize:none;" class="mdl-textfield__input" type="text" rows= "5" cols="33" maxlength = "289" id="descricao" placeholder="Ex: Eu sou...."></textarea>
+             <textarea style="resize:none;" class="mdl-textfield__input" type="text" rows= "5" cols="33" maxlength = "430" id="descricao" placeholder="Ex: Eu sou...."></textarea>
          </div>
          
          
@@ -222,9 +197,11 @@
          </center>
          <!-- fim botões de mudança cor -->
          
-         <!-- botões de ação -->
+         
          <br><!-- pular linha -->
-
+         
+         <!-- botões de ação -->
+         
          <label style="max-width: max-content; margin-right: 1em;margin-left: auto; display: block;min-width: 10em;border-radius: 5px;background-color:rgb(12, 86, 224);" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">
             Carregar Imagem de perfil &nbsp
             <i class="material-icons">face</i>
@@ -254,9 +231,6 @@
     <center>
       <div id="id_conteudo" class="preview"> 
         <div style="text-align: left;padding-top: 1em;">
-         <h2 id="titulo_categoria">Categoria</h2>
-         
-         <div id="detalhe_linha"></div>
          <div style="height: 11em;display: flex;flex-direction: column;overflow: hidden; ">
           <div style="margin-top: auto;margin-bottom: 0%;">
            <h2 class="texto_conteudo" style="font-weight: bold;font-size: 3.5em;" id="titulo_view">Título</h2>
@@ -294,7 +268,7 @@
         </div>
         <div class="mdl-card__supporting-text">
             <h6 style="margin:0;text-align: left;color: black;" id="texto_copiar">
-              Deseja ser divulgado? Faça o cadastro pelo site do Moogle! É fácil e rápido. Preencha o formulário de cadastro que se encontra na página inicial do site.
+              Deseja ser divulgado? Faça o cadastro pelo site do classificados.unb! É fácil e rápido. Preencha o formulário de cadastro que se encontra na página inicial do site.
               <br>
               Link: tinyurl.com/cadastro-site-classificadosunb
               <br>
@@ -451,8 +425,6 @@
     <!-- atualizar pre-visualizacao -->
     <script>
         function funcaobtn_visualizar(){
-            var var_categoria = document.getElementById("categoria").value;
-            document.getElementById("titulo_categoria").innerHTML = var_categoria;
     
             var var_titulo = document.getElementById("titulo").value;
             document.getElementById("titulo_view").innerHTML = var_titulo;
@@ -496,7 +468,7 @@
 
             var var_telefone = document.getElementById("telefone").value;
             var var_tem_whatsapp = document.getElementById("checkbox_whatsapp").checked;
-            //var de checagem se o titulo está habolitado ou nao
+            //var de checagem se o titulo (Telefone/Whatsapp) está habilitado ou nao
             var var_telefone_switch = document.getElementById("telefone_switch").checked;
             if (var_telefone_switch == false){
                 document.getElementById("telefone_view").innerHTML = var_telefone;
@@ -519,14 +491,6 @@
             else{
                 document.getElementById("contato_titulo").style.visibility = "visible";
             }
-
-            if(!var_categoria){
-                document.getElementById("detalhe_linha").style.visibility = "hidden";
-            }
-            else{
-                document.getElementById("detalhe_linha").style.visibility = "visible";
-            }
-
             
         }
     
@@ -600,10 +564,6 @@
 
     <script>
         //Salvar Backup. Ao ser preenchido algum campo do formulário, salvar na memoria de backup
-        var categoriaObj = document.getElementById("categoria");
-        categoriaObj.onchange = function(){
-            localStorage.setItem("categoriaBkp", categoriaObj.value);
-        }
 
         var tituloObj = document.getElementById("titulo");
         tituloObj.onchange = function(){
@@ -629,25 +589,18 @@
         telefoneObj.onchange = function(){
             localStorage.setItem("telefoneBkp", telefoneObj.value);
         }
-        
-        var categoriaObj = document.getElementById("categoria");
-        categoriaObj.onchange = function(){
-            localStorage.setItem("categoriaBkp", categoriaObj.value);
-        }
 
         //Fim Salvar Backup.
 
         //Carregar Backup. Carregar da memório dados já preenchidos em sessão anterior.
         function restaurarBackup(){
 
-            var varCategoria = localStorage.getItem("categoriaBkp");
             var varTitulo    = localStorage.getItem("tituloBkp");
             var varNome      = localStorage.getItem("nomeBkp");
             var varDescricao = localStorage.getItem("descricaoBkp");
             var varInstagram = localStorage.getItem("instagramBkp");
             var varTelefone  = localStorage.getItem("telefoneBkp");
 
-            document.getElementById('categoria').value = varCategoria;
             document.getElementById('titulo').value = varTitulo;
             document.getElementById('nome').value = varNome;
             document.getElementById('descricao').value = varDescricao;

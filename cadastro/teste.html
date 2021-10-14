@@ -1,0 +1,120 @@
+<!DOCTYPE html> 
+<html> 
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <div class="container">
+    <h5 class="left-align">Formulário de cadastro</h5>
+    <br>
+    <form target="_blank" action="https://formsubmit.co/luiseduardoribeiroguerra@gmail.com" method="POST">
+      
+      <h6 class="left-align">Título do anúncio:</h6>
+      <input type="text" name="Título" class="input-field" placeholder="Título" maxlength = "35" required>
+      
+      <h6 class="left-align">Seu nome (nome completo):</h6>
+      <input type="text" name="Nome" class="input-field" placeholder="Nome completo" maxlength = "35" required>
+      
+      <h6 class="left-align">Seu instagram:</h6>
+      
+      <div class="input-field">
+        <img style="width: 28px;" class="prefix" src="img/instagram.svg">
+        <input name="Instagram" type="text" maxlength = "30" required>
+      </div>
+
+      <p>
+        <label>
+          <input type="checkbox" name="Foto Instagram" class="filled-in" checked="checked" />
+          <span>Usar a foto de perfil do instagram</span>
+        </label>
+      </p>
+      
+      <h6 class="left-align">Número de telefone (opcional):</h6>
+      
+      <div class="input-field">
+        <i class="material-icons prefix">phone</i>
+        <input name="Telefone" type="text" maxlength = "19">
+      </div>
+
+      <p>
+        <label>
+          <input type="checkbox" name="WhatsApp" class="filled-in"/>
+          <span>Tem WhatsApp</span>
+        </label>
+      </p>
+
+
+      <h6 class="left-align">Cor de fundo na postagem:</h6>
+
+      <p>
+      <label>
+        <input class="with-gap" name="cor" value="Branco" type="radio" checked />
+        <span></span>
+        <i style="font-size: 24px;" class="material-icons left">cancel</i>
+      </label>
+      </p>
+
+      <p>
+      <label>
+        <input class="with-gap" name="cor" value="Amarelo" type="radio" />
+        <span></span>
+        <i style="font-size: 24px; color: #fff491;" class="material-icons left">circle</i>
+      </label>
+      </p>
+      
+      <p>
+      <label>
+        <input class="with-gap" name="cor" value="Verde" type="radio" />
+        <span></span>
+        <i style="font-size: 24px; color: #b4ffae;" class="material-icons left">circle</i>
+      </label>
+      </p>
+      
+      <p>
+      <label>
+        <input class="with-gap" name="cor" value="Azul" type="radio" />
+        <span></span>
+        <i style="font-size: 24px; color: #cae7ff;" class="material-icons left">circle</i>
+      </label>
+      </p>
+      
+      <p>
+      <label>
+          <input class="with-gap" name="cor" value="Rosa" type="radio" />
+          <span></span>
+          <i style="font-size: 24px; color: #ffd0e0;" class="material-icons left">circle</i>
+      </label>
+      </p>
+
+      <p>
+      <label>
+        <input class="with-gap" name="cor" value="Laranja" type="radio" />
+        <span></span>
+        <i style="font-size: 24px; color: #ffd794;" class="material-icons left">circle</i>
+      </label>
+      </p>
+
+
+      <h6 class="left-align">Descrição do seu anúncio:</h6>
+      <textarea style="max-width: 16em;" placeholder="Descrição" class="materialize-textarea" name="Descricao" rows="10" maxlength = "430" required></textarea>
+      
+      <h6 class="left-align">Alguma sugestão para o classificados.unb? Respondendo, você nos retribui ajudando a melhorar o projeto.</h6>
+      <textarea placeholder="Sugestão" class="materialize-textarea" name="Sugestao" rows="10" required></textarea>
+      
+      <input type="hidden" name="_subject" value="Novo cadastro">
+      <input type="hidden" name="_next" value="https://www.instagram.com/classificados.unb/">
+      <input type="hidden" name="_captcha" value="false">
+
+      <button type="submit" style="margin-bottom: 1em;" class="btn waves-effect waves-light  indigo accent-3 right">
+        Enviar
+        <i style="font-size: 24px;" class="material-icons right">email</i>
+      </button>
+
+
+    </form>
+  </div>
+
+</html> 

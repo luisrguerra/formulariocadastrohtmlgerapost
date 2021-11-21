@@ -1,0 +1,616 @@
+<!DOCTYPE html> 
+<html> 
+    
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.blue-light_blue.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head> 
+    <title>Formulário</title> 
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet'>
+
+    <style>
+    
+    .botao_cor{
+      margin: 0.5em;
+      color: #000;
+    }
+    .preview{
+        height: 1000px;
+        width: 1000px;
+        overflow: hidden; 
+    }
+     /*não está funcionando */
+    @media only screen and (max-width: 600px) {
+      .preview {
+        zoom: 30%;
+      }
+
+    }
+    @media only screen and (min-width: 600px) {
+      .preview {
+        zoom: 60%;
+      }
+      
+    }
+    .texto_conteudo{
+      color:black;
+      padding: 0em 1em 0em 5%;
+      font-family: 'Arimo';
+    }
+    
+    .texto_contato{
+      color:black;
+      padding: 0em 0em 0em 5%;
+      font-family: 'Arimo';
+      height:50px;
+      overflow: hidden;
+      word-wrap: break-word;
+      word-break: break-all;
+    }
+
+    #texto_descricao{
+        color:black;
+        padding: 0em 1em 0em 5%;
+        font-family: 'Arimo';
+        height: 10.3em;
+        overflow: hidden;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+
+    }
+    .margem_zero{
+      margin:  0em 0em;
+    }
+    .preencher_horizontal{
+      width: 100vw;
+    }
+    .rodape_conteudo{
+        font-family: 'Arimo';
+        color:black;
+        margin:0%;
+
+    }
+    #imagem_perfil{
+        max-width: 15em;
+        width:auto;
+        height:fit-content;
+        max-height:15em;
+        margin: auto;
+
+    }
+    .sombra{
+        box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%),
+        0 3px 1px -2px rgb(0 0 0 / 20%),
+        0 1px 5px 0 rgb(0 0 0 / 12%);
+
+    }
+    </style>
+      
+</head> 
+  
+<body> 
+    
+    <div style="margin: 0em 0.5em;" >
+         
+         <br><!-- pular linha -->    
+        
+         <h5 class="margem_zero">Título:</h5>
+         <!-- campo de texto -->
+         <div class="preencher_horizontal mdl-textfield mdl-js-textfield">
+             <input class="mdl-textfield__input" type="text" id="titulo" maxlength = "35" placeholder="Ex: Aprenda inglês fácil">
+         </div>
+        
+        
+        
+         <h5 class="margem_zero">Nome:</h5>
+         <!-- campo de texto -->
+         <div class="preencher_horizontal mdl-textfield mdl-js-textfield">
+             <input class="mdl-textfield__input" type="text" id="nome" maxlength = "35" placeholder="Ex: Santos Dumont">
+         </div>
+         
+         
+         
+         <h5 class="margem_zero">Descrição:</h5>
+         <!-- campo de texto -->
+         <div style="width: auto;" class="mdl-textfield mdl-js-textfield">
+             <textarea style="resize:none;" class="mdl-textfield__input" type="text" rows= "5" cols="33" maxlength = "430" id="descricao" placeholder="Ex: Eu sou...."></textarea>
+         </div>
+         
+         
+         
+         <h5 style="margin: 1em 0em;">Contato:</h5>
+         
+         <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="instagram_switch">
+            <input type="checkbox" id="instagram_switch" class="mdl-switch__input" checked>
+            <span class="mdl-switch__label">Instagram:</span>
+         </label>
+
+         <!-- campo de texto -->
+         <div class="preencher_horizontal mdl-textfield mdl-js-textfield">
+             <input class="mdl-textfield__input" type="text" id="instagram" maxlength = "30" placeholder="Ex: @meu_instagram">
+         </div>
+        
+         <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="telefone_switch">
+            <input type="checkbox" id="telefone_switch" class="mdl-switch__input" checked>
+            <span class="mdl-switch__label">Telefone:</span>
+         </label>
+
+         <!-- campo de texto -->
+         <div class="preencher_horizontal mdl-textfield mdl-js-textfield">
+             <input class="mdl-textfield__input" type="text" id="telefone" maxlength = "19" placeholder="Ex: (61) 9999-9999">
+         </div>
+
+         <div>
+            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox_whatsapp">
+                <input type="checkbox" id="checkbox_whatsapp" class="mdl-checkbox__input">
+                <h6 class="margem_zero">Tem WhatsApp</h6>
+            </label>
+            
+         </div>
+         
+         
+         <!-- botões de mudança cor -->
+         <center>
+         <div style="display: block;">
+            <button id="cor_branco" class="botao_cor mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" onclick="btn_cor_branco()">
+                <i class="material-icons">format_paint</i>
+            </button>
+            <button id="cor_amarelo" class="botao_cor mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" onclick="btn_cor_amarelo()" >
+                <i class="material-icons">format_paint</i>
+            </button>
+            <button id="cor_verde_grama" class="botao_cor mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" onclick="btn_cor_verde_grama()">
+                <i class="material-icons">format_paint</i>
+            </button>
+            <button id="cor_verde" class="botao_cor mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect"" onclick="btn_cor_verde()">
+                <i class="material-icons">format_paint</i>
+            </button>
+            <button id="cor_ciano_claro" class="botao_cor mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" onclick="btn_cor_ciano_claro()">
+                <i class="material-icons">format_paint</i>
+            </button>
+            <button id="cor_azul_claro" class="botao_cor mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" onclick="btn_cor_azul_claro()">
+                <i class="material-icons">format_paint</i>
+            </button>
+            <button id="cor_salmao" class="botao_cor mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" onclick="btn_cor_salmao()">
+                <i class="material-icons">format_paint</i>
+            </button>
+            <button id="cor_salmao_claro" class="botao_cor mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" onclick="btn_cor_salmao_claro()">
+                <i class="material-icons">format_paint</i>
+            </button>
+            <button id="cor_laranja" class="botao_cor mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" onclick="btn_cor_laranja()">
+                <i class="material-icons">format_paint</i>
+            </button>
+            <button id="cor_rosa_claro" class="botao_cor mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" onclick="btn_cor_rosa_claro()">
+                <i class="material-icons">format_paint</i>
+            </button>
+            <button id="cor_rosa" class="botao_cor mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" onclick="btn_cor_rosa()">
+                <i class="material-icons">format_paint</i>
+            </button>
+            <button id="cor_roxo" class="botao_cor mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" onclick="btn_cor_roxo()">
+                <i class="material-icons">format_paint</i>
+            </button>
+         </div>
+         </center>
+         <!-- fim botões de mudança cor -->
+         
+         
+         <br><!-- pular linha -->
+         
+         <!-- botões de ação -->
+         
+         <label style="max-width: max-content; margin-right: 1em;margin-left: auto; display: block;min-width: 10em;border-radius: 5px;background-color:rgb(12, 86, 224);" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">
+            Carregar Imagem de perfil &nbsp
+            <i class="material-icons">face</i>
+            <input style="display: none;" type="file" accept="image/*" onchange="loadFile(event)">
+         </label>
+
+         <br><!-- pular linha -->
+
+         <button style="margin-right: 1em;margin-left: auto; display: block;min-width: 10em;border-radius: 5px;background-color:rgb(12, 86, 224);" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white" onclick="funcaobtn_visualizar()">
+             <h>Atualizar pré-visualização &nbsp</h>
+             <i class="material-icons">cached</i>
+         </button>
+         
+         <br><!-- pular linha -->
+
+         <button style="margin-right: 1em;margin-left: auto; display: block;min-width: 10em;border-radius: 5px;background-color:rgb(12, 86, 224);" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white" onclick="funcaobtn_salvar()">
+            <h>Salvar imagem &nbsp</h>
+            <i class="material-icons">save</i>
+         </button>
+         
+    </div>
+
+    <br><!-- pular linha -->
+    <br><!-- pular linha -->
+    
+    <!-- pre-visualização -->
+    <center>
+      <div id="id_conteudo" class="preview"> 
+        <div style="text-align: left;padding-top: 1em;">
+         <div style="height: 11em;display: flex;flex-direction: column;overflow: hidden; ">
+          <div style="margin-top: auto;margin-bottom: 0%;">
+           <h2 class="texto_conteudo" style="font-weight: bold;font-size: 3.5em;" id="titulo_view">Título</h2>
+           <h2 class="texto_conteudo" style="font-weight: bold;" id="nome_view">Nome</h2>
+          </div>
+         </div>
+          <h2 id="texto_descricao" cols="33">Descrição...</h3>
+        </div>
+      
+        <div style="text-align: left;display: inline-flex;width: 95%;overflow: hidden;">
+         <div style="width: 75%;height:17em">
+          <h2 class="texto_conteudo" style="font-weight: bold;" id="contato_titulo" >Contato:</h2>
+          <h2 class="texto_contato" id="instagram_view">Instagram</h2>
+          <h2 class="texto_contato" id="telefone_view">Telefone</h3>
+         </div>
+         <img id="imagem_perfil">
+        </div>
+        <div style="text-align: center;">
+          <h3 class="rodape_conteudo" >Instagram:@classificados.unb</h3>
+          <h3 class="rodape_conteudo" >Acesse: tinyurl.com/cadastro-site-classificadosunb</h3>
+        </div>
+      </div> 
+    </center>
+    <!-- fim pre-visualização -->
+
+    <br><!-- pular linha -->
+    <br><!-- pular linha -->
+    
+    <!-- caixa de dialogo copiar mensagem padrão -->
+    <center>
+    <div style="margin:2.5%;"> 
+     <div style="width:fit-content;max-width: 30em" class=" mdl-card mdl-shadow--2dp">
+        <div style="padding-bottom: 0;" class="mdl-card__title">
+          <h2 class="mdl-card__title-text">Mensagem Padrão</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+            <h6 style="margin:0;text-align: left;color: black;" id="texto_copiar">
+              Deseja ser divulgado? Faça o cadastro pelo site do classificados.unb! É fácil e rápido. Preencha o formulário de cadastro que se encontra na página inicial do site.
+              <br>
+              Link: tinyurl.com/cadastro-site-classificadosunb
+              <br>
+              Link também na biografia da página
+              <br>
+              #universidadedebrasilia
+              <br>
+              #universidadedebrasília
+            </h6> 
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+          <button style="color: black;" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored " onclick="funcaobtn_copiar_txt()">
+                <h>Copiar texto &nbsp</h>
+                <i class="material-icons">content_copy</i>
+          </button>
+        </div>
+     </div>
+    </div>  
+    </center>
+    <!-- fim caixa de dialogo copiar mensagem padrão -->
+    
+    <!-- botão para restaurar backup dos dados da última sessão -->
+    <button style="margin-right: 1em;margin-left: auto; display: block;min-width: 10em;border-radius: 5px;background-color:white;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--black" onclick="restaurarBackup()">
+        <h>Restaurar Backup &nbsp</h>
+        <i class="material-icons">history</i>
+    </button>
+
+    <br><!-- pular linha -->
+    <br><!-- pular linha -->
+    
+    
+    <script>
+    var cor_branco       = "#ffffff";
+    var cor_amarelo      = "#fff491";
+    var cor_verde_grama  = "#cfff97";
+    var cor_verde        = "#b4ffae";
+    var cor_ciano_claro  = "#c2f4fb";
+    var cor_azul_claro   = "#cae7ff";
+    var cor_salmao       = "#ffc6b3";
+    var cor_salmao_claro = "#ffd7c6";
+    var cor_laranja      = "#ffd794";
+    var cor_rosa_claro   = "#ffd0e0";
+    var cor_rosa         = "#ffbfda";
+    var cor_roxo         = "#f7c8ff";
+    var cor_padrao       = cor_amarelo;
+    var cor_escolhida    = cor_padrao;
+    
+    function atualizar_fundo(){
+       document.getElementById('id_conteudo').style.backgroundColor = cor_escolhida; 
+    }
+
+    $(document).ready(function() { 
+       document.getElementById('id_conteudo').style.backgroundColor = cor_escolhida;  
+    });
+
+    $(document).ready(function() { 
+       document.getElementById('cor_branco').style.backgroundColor = cor_branco;  
+    });
+    function btn_cor_branco(){
+        cor_escolhida = cor_branco;
+        atualizar_fundo();
+    }
+
+    $(document).ready(function() { 
+       document.getElementById('cor_amarelo').style.backgroundColor = cor_amarelo;  
+    });
+    function btn_cor_amarelo(){
+        cor_escolhida = cor_amarelo;
+        atualizar_fundo();
+    }
+
+    $(document).ready(function() { 
+       document.getElementById('cor_verde_grama').style.backgroundColor = cor_verde_grama;  
+    });
+    function btn_cor_verde_grama(){
+        cor_escolhida = cor_verde_grama;
+        atualizar_fundo();
+    }
+
+    $(document).ready(function() { 
+       document.getElementById('cor_verde').style.backgroundColor = cor_verde;  
+    });
+    function btn_cor_verde(){
+        cor_escolhida = cor_verde;
+        atualizar_fundo();
+    }
+
+    $(document).ready(function() { 
+       document.getElementById('cor_ciano_claro').style.backgroundColor = cor_ciano_claro;  
+    });
+    function btn_cor_ciano_claro(){
+        cor_escolhida = cor_ciano_claro;
+        atualizar_fundo();
+    }
+
+    $(document).ready(function() { 
+       document.getElementById('cor_azul_claro').style.backgroundColor = cor_azul_claro;  
+    });
+    function btn_cor_azul_claro(){
+        cor_escolhida = cor_azul_claro;
+        atualizar_fundo();
+    }
+
+    $(document).ready(function() { 
+       document.getElementById('cor_salmao').style.backgroundColor = cor_salmao;  
+    });
+    function btn_cor_salmao(){
+        cor_escolhida = cor_salmao;
+        atualizar_fundo();
+    }
+
+    $(document).ready(function() { 
+       document.getElementById('cor_salmao_claro').style.backgroundColor = cor_salmao_claro;  
+    });
+    function btn_cor_salmao_claro(){
+        cor_escolhida = cor_salmao_claro;
+        atualizar_fundo();
+    }
+
+    $(document).ready(function() { 
+       document.getElementById('cor_laranja').style.backgroundColor = cor_laranja;  
+    });
+    function btn_cor_laranja(){
+        cor_escolhida = cor_laranja;
+        atualizar_fundo();
+    }
+
+    $(document).ready(function() { 
+       document.getElementById('cor_rosa_claro').style.backgroundColor = cor_rosa_claro;  
+    });
+    function btn_cor_rosa_claro(){
+        cor_escolhida = cor_rosa_claro;
+        atualizar_fundo();
+    }
+
+    $(document).ready(function() { 
+       document.getElementById('cor_rosa').style.backgroundColor = cor_rosa;  
+    });
+    function btn_cor_rosa(){
+        cor_escolhida = cor_rosa;
+        atualizar_fundo();
+    }
+
+    $(document).ready(function() { 
+       document.getElementById('cor_roxo').style.backgroundColor = cor_roxo;  
+    });
+    function btn_cor_roxo(){
+        cor_escolhida = cor_roxo;
+        atualizar_fundo();
+    }
+
+    </script>
+
+    <!-- atualizar pre-visualizacao -->
+    <script>
+        function funcaobtn_visualizar(){
+    
+            var var_titulo = document.getElementById("titulo").value;
+            document.getElementById("titulo_view").innerHTML = var_titulo;
+    
+            var var_nome = document.getElementById("nome").value;
+            document.getElementById("nome_view").innerHTML = var_nome;
+    
+            var var_descricao = document.getElementById("descricao").value;
+            document.getElementById("texto_descricao").innerHTML = var_descricao;
+            
+            var var_instagram_switch = document.getElementById("instagram_switch").checked;
+            var var_instagram = document.getElementById("instagram").value;
+            if (var_instagram != 0){
+                if(var_instagram_switch == true){
+                    var_instagram = "Instagram: " + var_instagram;
+                }
+                else{
+                    var_instagram = var_instagram;
+                }
+                
+                document.getElementById("instagram_view").innerHTML = var_instagram;
+                if(var_instagram.length > 11 + 22){
+                    document.getElementById("instagram_view").style.fontSize="2.2em";
+                }
+                else if (var_instagram.length > 11 + 20){
+                    document.getElementById("instagram_view").style.fontSize= "2.4em";
+                }
+                else if (var_instagram.length > 11 + 18){
+                    document.getElementById("instagram_view").style.fontSize= "2.8em";
+                }
+                else if (var_instagram.length > 11 + 14){
+                    document.getElementById("instagram_view").style.fontSize= "3.2em";
+                }
+                else{
+                    document.getElementById("instagram_view").style.fontSize= "3.2em";
+                }
+            }
+            else{
+                document.getElementById("instagram_view").innerHTML = "";
+            }
+
+            var var_telefone = document.getElementById("telefone").value;
+            var var_tem_whatsapp = document.getElementById("checkbox_whatsapp").checked;
+            //var de checagem se o titulo (Telefone/Whatsapp) está habilitado ou nao
+            var var_telefone_switch = document.getElementById("telefone_switch").checked;
+            if (var_telefone_switch == false){
+                document.getElementById("telefone_view").innerHTML = var_telefone;
+            }
+            else if (var_telefone != 0 && var_tem_whatsapp == false){
+                var_telefone = "Telefone: " + var_telefone;
+                document.getElementById("telefone_view").innerHTML = var_telefone;
+            }
+            else if (var_telefone != 0 &&  var_tem_whatsapp == true){
+                var_telefone = "WhatsApp: " + var_telefone;
+                document.getElementById("telefone_view").innerHTML = var_telefone;
+            }
+            else{
+                document.getElementById("telefone_view").innerHTML = "";
+            }
+            
+            if(!(var_instagram || var_telefone)){
+                document.getElementById("contato_titulo").style.visibility = "hidden";
+            }
+            else{
+                document.getElementById("contato_titulo").style.visibility = "visible";
+            }
+            
+        }
+    
+    </script>
+        
+    <script>
+        var loadFile = function(event) {
+          var output = document.getElementById('imagem_perfil');
+          
+          let reader = new FileReader();
+          reader.readAsDataURL(event.target.files[0]);
+          reader.onload = function() {
+            output.src = reader.result; // data url
+          };
+          output.onload = function() {
+            URL.revokeObjectURL(output.src) // free memory
+          }
+        };
+    </script>
+  
+    <!-- salvar -->
+    <script>
+        var elemento;
+        var getCanvas;  
+        $(document).ready(function() { 
+            elemento = $("#id_conteudo");      
+        });
+        function funcaobtn_salvar(){ 
+                funcaobtn_visualizar();
+                var zoom_tmp = document.getElementById("id_conteudo").style.zoom;
+                document.getElementById("id_conteudo").style.zoom = "100%";
+
+                
+                html2canvas(elemento, {
+
+                    
+                    onrendered: function(canvas) { 
+                      getCanvas = canvas; 
+
+                      var dados_imagem =  getCanvas.toDataURL("image/png"); 
+                     
+                      var newData = dados_imagem.replace( 
+                      /^data:image\/png/, "data:application/octet-stream"); 
+                      
+                      
+                      document.getElementById("id_conteudo").style.zoom = zoom_tmp;
+
+                      var a = document.createElement('a');
+                      a.href = newData;
+                      a.download = 'imagem.png';
+                      a.click();
+                    } 
+                }); 
+    
+                
+        }; 
+    </script> 
+
+    <script>
+        function funcaobtn_copiar_txt(){
+            var copyText = document.getElementById("texto_copiar");
+            var temp = document.createElement("textarea");
+            document.body.appendChild(temp);
+            temp.value= copyText.innerText
+            temp.select();
+            document.execCommand("copy");
+            document.body.removeChild(temp);  
+
+        }
+    </script>
+
+    <script>
+        //Salvar Backup. Ao ser preenchido algum campo do formulário, salvar na memoria de backup
+
+        var tituloObj = document.getElementById("titulo");
+        tituloObj.onchange = function(){
+            localStorage.setItem("tituloBkp", tituloObj.value);
+        }
+
+        var nomeObj = document.getElementById("nome");
+        nomeObj.onchange = function(){
+            localStorage.setItem("nomeBkp", nomeObj.value);
+        }
+
+        var descricaoObj = document.getElementById("descricao");
+        descricaoObj.onchange = function(){
+            localStorage.setItem("descricaoBkp", descricaoObj.value);
+        }
+
+        var instagramObj = document.getElementById("instagram");
+        instagramObj.onchange = function(){
+            localStorage.setItem("instagramBkp", instagramObj.value);
+        }
+
+        var telefoneObj = document.getElementById("telefone");
+        telefoneObj.onchange = function(){
+            localStorage.setItem("telefoneBkp", telefoneObj.value);
+        }
+
+        //Fim Salvar Backup.
+
+        //Carregar Backup. Carregar da memório dados já preenchidos em sessão anterior.
+        function restaurarBackup(){
+
+            var varTitulo    = localStorage.getItem("tituloBkp");
+            var varNome      = localStorage.getItem("nomeBkp");
+            var varDescricao = localStorage.getItem("descricaoBkp");
+            var varInstagram = localStorage.getItem("instagramBkp");
+            var varTelefone  = localStorage.getItem("telefoneBkp");
+
+            document.getElementById('titulo').value = varTitulo;
+            document.getElementById('nome').value = varNome;
+            document.getElementById('descricao').value = varDescricao;
+            document.getElementById('instagram').value = varInstagram;
+            document.getElementById('telefone').value = varTelefone;
+
+        }
+        //Fim Carregar Backup.
+    </script>
+
+</body> 
+  
+</html>                     

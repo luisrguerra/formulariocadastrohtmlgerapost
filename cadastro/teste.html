@@ -15,6 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 
+<!-- Melhoria da visualização em smartphones -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <div class="container">
@@ -27,7 +28,8 @@
     <img style="width: 20em; max-width: 95%;" src="img/exemplo.png">
     <p>(Exemplo de anúncio)</p>
     </div>
-
+    
+    <!-- Configuração do envio das formações para o email atravéz do formsubmit.co -->
     <form target="_blank" action="https://formsubmit.co/luiseduardoribeiroguerra@gmail.com" method="POST">
       
       <h6 class="left-align">Título do anúncio:</h6>
@@ -113,7 +115,10 @@
 
 
       <h6 class="left-align">Descrição do seu anúncio:</h6>
-      <textarea id="descricao" style="max-width: 16em;zoom: 123%" placeholder="Ex: Olá, estou procurando..." class="materialize-textarea" name="Descricao" rows="10" maxlength = "430" required></textarea>
+      <textarea style="max-width: 16em;zoom: 123%" placeholder="Ex: Olá, estou procurando..." class="materialize-textarea" name="Descricao" rows="10" maxlength = "430" required></textarea>
+      
+      <br>
+      <input type="file" name="attachment" accept="image/png, image/jpeg">
       
       <h6 class="left-align">Alguma sugestão para o classificados.unb? Respondendo, você nos retribui ajudando a melhorar o projeto.</h6>
       <textarea placeholder="Ex: Poderia melhorar..." class="materialize-textarea" name="Sugestao" rows="10" required></textarea>

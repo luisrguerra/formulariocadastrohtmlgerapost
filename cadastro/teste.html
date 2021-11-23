@@ -3,6 +3,9 @@
 
   <head>
     <title>Cadastro de anúncio</title>
+    
+    <!-- fontes -->
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet'>
 
     <style>
       input[type=file]::file-selector-button {
@@ -154,8 +157,71 @@
         <i style="font-size: 24px;" class="material-icons right">email</i>
       </button>
 
-
     </form>
+
+    <br>
+    <br>
+    <br>
+    
+    <style>
+      .preview {
+        height: 1000px;
+        width: 1000px;
+        overflow: hidden;
+        background-color: rgb(255, 244, 145);
+        zoom: 60%;
+        overflow: hidden;
+        font-family: 'Arimo';
+      }
+      .texto_conteudo {
+        padding: 0em 1em 0em 5%;
+        text-align: left;
+      }
+      #texto_descricao{
+        padding: 0em 1em 0em 5%;
+        height: 10.3em;
+        overflow: hidden;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+      .negrito{
+        font-weight: bold;
+      }
+      .texto_contato{
+        padding: 0em 0em 0em 5%;
+      }
+      .rodape_conteudo{
+        line-height: 40px;
+        margin: 0%;
+      }
+    </style>
+
+    <center>
+      <div class="preview" id="id_conteudo">
+        <h2 class="texto_conteudo negrito" id="titulo_view">Título</h2>
+        <h2 class="texto_conteudo negrito" id="nome_view">Nome</h2>
+        <h3 class="texto_conteudo" id="texto_descricao">Descrição...</h3>
+
+        <div style="text-align: left;display: inline-flex;width: 95%;overflow: hidden;">
+          <div style="width: 75%;height:17em">
+            <h3 class="texto_conteudo" style="font-weight: bold;" id="contato_titulo" >Contato:</h3>
+            <h3 class="texto_contato" id="instagram_view">Instagram</h3>
+            <h3 class="texto_contato" id="telefone_view">Telefone</h3>
+          </div>
+          <img id="imagem_perfil">
+        </div>
+
+        <div style="text-align: center;">
+          <h4 class="rodape_conteudo" >Instagram:@classificados.unb</h4>
+          <h4 class="rodape_conteudo" >Acesse: tinyurl.com/cadastro-site-classificadosunb</h4>
+        </div>
+
+      </div>
+    </center>
+
+    <br>
+    <br>
+
   </div>
 
 </html> 

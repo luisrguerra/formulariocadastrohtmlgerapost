@@ -49,16 +49,16 @@
     <form target="_blank" action="https://formsubmit.co/luiseduardoribeiroguerra@gmail.com" method="POST" enctype="multipart/form-data">
       
       <h6 class="left-align">Título do anúncio:</h6>
-      <input type="text" name="Título" class="input-field" placeholder="Ex: Procura-se professor de matemática" maxlength = "35" required>
+      <input id="inputTitulo" type="text" name="Título" class="input-field" placeholder="Ex: Procura-se professor de matemática" maxlength = "35" required>
       
       <h6 class="left-align">Seu nome (nome completo):</h6>
-      <input type="text" name="Nome" class="input-field" placeholder="Ex: Alberto Santos Dumont" maxlength = "35" required>
+      <input id="inputNome" type="text" name="Nome" class="input-field" placeholder="Ex: Alberto Santos Dumont" maxlength = "35" required>
       
       <h6 class="left-align">Seu instagram:</h6>
       
       <div class="input-field">
         <img style="width: 28px;" class="prefix" src="img/instagram.svg">
-        <input name="Instagram" type="text" placeholder="Ex: @classificados.unb" maxlength = "30" required>
+        <input id="inputInstagram" name="Instagram" type="text" placeholder="Ex: @classificados.unb" maxlength = "30" required>
       </div>
 
       <p>
@@ -72,7 +72,7 @@
       
       <div class="input-field">
         <i class="material-icons prefix">phone</i>
-        <input name="Telefone" type="text" placeholder="Ex: (00) 0000-0000" maxlength = "19">
+        <input id="inputTelefone" name="Telefone" type="text" placeholder="Ex: (00) 0000-0000" maxlength = "19">
       </div>
 
       <p>
@@ -131,7 +131,7 @@
 
 
       <h6 class="left-align">Descrição do seu anúncio:</h6>
-      <textarea style="max-width: 16em;zoom: 123%" placeholder="Ex: Olá, estou procurando..." class="materialize-textarea" name="Descricao" rows="10" maxlength = "430" required></textarea>
+      <textarea id="inputDescricao" style="max-width: 16em;zoom: 123%" placeholder="Ex: Olá, estou procurando..." class="materialize-textarea" name="Descricao" rows="10" maxlength = "430" required></textarea>
       
       <br>
       <h6 class="left-align">Carregar uma foto sua (opcional):</h6>
@@ -164,12 +164,15 @@
     <br>
     
     <style>
+      /* */
+      /* Quadrado em que se localiza a pré-visualização */
+      /* Zoom para caber na tela, na renderização o Zoom será removido */
       .preview {
         height: 1000px;
         width: 1000px;
         overflow: hidden;
         background-color: rgb(255, 244, 145);
-        zoom: 60%;
+        zoom: 50%;
         overflow: hidden;
         font-family: 'Arimo';
       }
@@ -177,12 +180,12 @@
         padding: 0em 1em 0em 5%;
         text-align: left;
       }
-      #texto_descricao{
-        padding: 0em 1em 0em 5%;
-        height: 10.3em;
-        overflow: hidden;
+      /* Permitir a quebra de linha do texto */
+      #descricaoView{
+        height: 10em;
         white-space: pre-wrap;
         word-wrap: break-word;
+        overflow: hidden;
       }
       .negrito{
         font-weight: bold;
@@ -198,17 +201,19 @@
 
     <center>
       <div class="preview" id="id_conteudo">
-        <h2 class="texto_conteudo negrito" id="titulo_view">Título</h2>
-        <h2 class="texto_conteudo negrito" id="nome_view">Nome</h2>
-        <h3 class="texto_conteudo" id="texto_descricao">Descrição...</h3>
+        <div class="texto_conteudo">
+         <h2 id="tituloView" class="negrito">Título</h2>
+         <h3 id="nomeView" class="negrito">Nome</h3>
+         <h3 id="descricaoView">Descrição...</h3>
+        </div>
 
         <div style="text-align: left;display: inline-flex;width: 95%;overflow: hidden;">
           <div style="width: 75%;height:17em">
-            <h3 class="texto_conteudo" style="font-weight: bold;" id="contato_titulo" >Contato:</h3>
-            <h3 class="texto_contato" id="instagram_view">Instagram</h3>
-            <h3 class="texto_contato" id="telefone_view">Telefone</h3>
+            <h3 id="contatoView" class="texto_conteudo" style="font-weight: bold;">Contato:</h3>
+            <h3 id="instagramView" class="texto_contato">Instagram</h3>
+            <h3 id="telefoneView" class="texto_contato">Telefone</h3>
           </div>
-          <img id="imagem_perfil">
+          <img id="imagemPerfil">
         </div>
 
         <div style="text-align: center;">
@@ -218,6 +223,23 @@
 
       </div>
     </center>
+    
+    <script>
+     //Atualização automática do texto de acordo com o valor inserido no input
+     function atualizarConteudo(idInput, idTexto) {
+      document.getElementById(idInput).onchange = function(){
+        var texto = document.getElementById(idInput).value;
+        document.getElementById(idTexto).innerHTML = texto;
+      };
+     };
+     
+     atualizarConteudo("inputTitulo","tituloView");
+     atualizarConteudo("inputNome","nomeView");
+     atualizarConteudo("inputDescricao","descricaoView");
+     atualizarConteudo("inputInstagram","instagramView");
+     atualizarConteudo("inputTelefone","telefoneView");
+
+    </script>
 
     <br>
     <br>

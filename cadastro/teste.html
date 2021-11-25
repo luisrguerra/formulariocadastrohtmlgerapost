@@ -131,7 +131,7 @@
 
 
       <h6 class="left-align">Descrição do seu anúncio:</h6>
-      <textarea id="inputDescricao" style="max-width: 16em;zoom: 123%" placeholder="Ex: Olá, estou procurando..." class="materialize-textarea" name="Descricao" rows="10" maxlength = "430" required></textarea>
+      <textarea id="inputDescricao" style="max-width: 16em;zoom: 123%" placeholder="Ex: Olá, estou procurando..." class="materialize-textarea" name="Descricao" rows="10" maxlength = "380" required></textarea>
       
       <br>
       <h6 class="left-align">Carregar uma foto sua (opcional):</h6>
@@ -182,7 +182,8 @@
       }
       /* Permitir a quebra de linha do texto */
       #descricaoView{
-        height: 10em;
+        height: 9em;
+        margin-right: 1em;
         white-space: pre-wrap;
         word-wrap: break-word;
         overflow: hidden;
@@ -199,6 +200,8 @@
       }
     </style>
 
+    <h5 class="left-align">Pré-visualização:</h5>
+    <br>
     <center>
       <div class="preview" id="id_conteudo">
         <div class="texto_conteudo">
@@ -208,10 +211,16 @@
         </div>
 
         <div style="text-align: left;display: inline-flex;width: 95%;overflow: hidden;">
-          <div style="width: 75%;height:17em">
+          <div style="width: 75%;height:19em">
             <h3 id="contatoView" class="texto_conteudo" style="font-weight: bold;">Contato:</h3>
-            <h3 id="instagramView" class="texto_contato">Instagram</h3>
-            <h3 id="telefoneView" class="texto_contato">Telefone</h3>
+            <div style="display: flex;">
+              <h3 class="texto_contato">Instagram:</h3>
+              <h3 id="instagramView" class="texto_contato">usuário</h3>
+            </div>
+            <div style="display: flex;">
+              <h3 class="texto_contato">Telefone:</h3>
+              <h3 id="telefoneView" class="texto_contato">número</h3>
+            </div>
           </div>
           <img id="imagemPerfil">
         </div>

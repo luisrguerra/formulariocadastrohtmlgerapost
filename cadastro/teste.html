@@ -88,14 +88,14 @@
       <div id="coresRadio">
         <p>
         <label>
-          <input class="with-gap" name="cor" value="Branco" type="radio" checked />
+          <input class="with-gap" name="cor" value="Branco" type="radio"/>
           <span></span>
           <i style="font-size: 24px;" class="material-icons left">cancel</i>
         </label>
         </p>
         <p>
         <label>
-          <input class="with-gap" name="cor" value="Amarelo" type="radio" />
+          <input class="with-gap" name="cor" value="Amarelo" type="radio" checked />
           <span></span>
           <i style="font-size: 24px; color: #fff491;" class="material-icons left">circle</i>
         </label>
@@ -169,7 +169,7 @@
       /* */
       /* Quadrado em que se localiza a pré-visualização */
       /* Zoom para caber na tela, na renderização o Zoom será removido */
-      .preview {
+      #preview {
         height: 1000px;
         width: 1000px;
         overflow: hidden;
@@ -200,36 +200,48 @@
         line-height: 40px;
         margin: 0%;
       }
+      .areaContato{
+        text-align: left;
+        display: inline-flex;
+        width: 95%;
+        overflow: hidden;
+      }
+      .flex{
+        display: flex;
+      }
     </style>
 
     <h5 class="left-align">Pré-visualização:</h5>
     <br>
     <center>
-      <div class="preview" id="id_conteudo">
+      <div id="preview">
         <div class="texto_conteudo">
          <h2 id="tituloView" class="negrito">Título</h2>
          <h3 id="nomeView" class="negrito">Nome</h3>
+         <!-- Paragrafo de descrição -->
          <h3 id="descricaoView">Descrição...</h3>
         </div>
 
-        <div style="text-align: left;display: inline-flex;width: 95%;overflow: hidden;">
+        <div class="areaContato">
           <div style="width: 75%;height:19em">
-            <h3 id="contatoView" class="texto_conteudo" style="font-weight: bold;">Contato:</h3>
-            <div style="display: flex;">
+            <h3 id="contatoView" class="texto_conteudo negrito">Contato:</h3>
+            <div class="flex">
               <h3 class="texto_contato">Instagram:</h3>
               <h3 id="instagramView" class="texto_contato">usuário</h3>
             </div>
-            <div style="display: flex;">
+            <div class="flex">
               <h3 class="texto_contato">Telefone:</h3>
               <h3 id="telefoneView" class="texto_contato">número</h3>
             </div>
           </div>
           <img id="imagemPerfil">
         </div>
-
-        <div style="text-align: center;">
-          <h4 class="rodape_conteudo" >Instagram:@classificados.unb</h4>
-          <h4 class="rodape_conteudo" >Acesse: tinyurl.com/cadastro-site-classificadosunb</h4>
+        
+        <div>
+          <center>
+           <h4 class="rodape_conteudo" >Instagram:@classificados.unb</h4>
+           <h4 class="rodape_conteudo" >Acesse: tinyurl.com/cadastro-site-classificadosunb</h4>
+          </center>
         </div>
 
       </div>
@@ -251,19 +263,40 @@
      atualizarConteudo("inputTelefone","telefoneView");
 
      
-     let corFundo;
+     //Alteração da cor de fundo da pré-visualização
      document.getElementById('coresRadio').onchange = function(){
+      
+      //Carregar valor selecionado no botão radio
+      let corFundo = document.querySelector( 'input[name="cor"]:checked').value; 
 
-       var corSelecionada = document.querySelector( 'input[name="cor"]:checked').value;
-       console.log(corSelecionada)  
-       if(corSelecionada != null) {   
-          corFundo = corSelecionada; 
-       }
-       else {  
-          corFundo = "Branco"; 
-       }
+      function atualizarFundo(cor){
+       document.getElementById('preview').style.backgroundColor = cor; 
+      }
 
+      switch (corFundo) {
+        case "Branco":
+          atualizarFundo('#ffffff')
+          break;
+        case "Amarelo":
+          atualizarFundo('#fff491')
+          break;
+        case "Verde":
+          atualizarFundo('#b4ffae')
+          break;
+        case "Azul":
+          atualizarFundo('#cae7ff')
+          break;
+        case "Rosa":
+          atualizarFundo('#ffd0e0')
+          break;
+        case "Laranja":
+          atualizarFundo('#ffd794')
+          break;
+      case false:
+          atualizarFundo('#ffffff')
+      }
      }
+     //Fim da alteração da cor de fundo da pré-visualização
 
     </script>
 

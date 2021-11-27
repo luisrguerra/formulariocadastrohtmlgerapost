@@ -137,7 +137,7 @@
       
       <br>
       <h6 class="left-align">Carregar uma foto sua (opcional):</h6>
-      <input type="file" name="attachment" accept="image/png, image/jpeg">
+      <input id="inputImagem" type="file" name="attachment" accept="image/png, image/jpeg">
       
       <br>
       <br>
@@ -154,6 +154,169 @@
       <br>
       <br>
 
+      <style>
+        /* */
+        /* Quadrado em que se localiza a pré-visualização */
+        /* Zoom para caber na tela, na renderização o Zoom será removido */
+        #preview {
+          height: 1000px;
+          width: 1000px;
+          overflow: hidden;
+          background-color: rgb(255, 244, 145);
+          zoom: 50%;
+          overflow: hidden;
+          font-family: 'Arimo';
+        }
+        .texto_conteudo {
+          padding: 0em 1em 0em 5%;
+          text-align: left;
+        }
+        /* Permitir a quebra de linha do texto */
+        #descricaoView{
+          height: 9em;
+          margin-right: 1em;
+          white-space: pre-wrap;
+          word-wrap: break-word;
+          overflow: hidden;
+        }
+        .negrito{
+          font-weight: bold;
+        }
+        .texto_contato{
+          padding: 0em 0em 0em 5%;
+          margin-top: 0.3em;
+          margin-bottom: 0.3em;
+        }
+        .rodape_conteudo{
+          line-height: 40px;
+          margin: 0%;
+        }
+        .areaContato{
+          text-align: left;
+          display: inline-flex;
+          width: 95%;
+          overflow: hidden;
+        }
+        .flex{
+          display: flex;
+        }
+        #imagemPerfil{
+          max-width: 15em;
+          width: auto;
+          height: fit-content;
+          max-height: 15em;
+          margin: auto;
+        }
+      </style>
+  
+      <h5 class="left-align">Pré-visualização:</h5>
+      <br>
+      <center>
+        <div id="preview">
+          <div class="texto_conteudo">
+           <h2 id="tituloView" class="negrito">Título</h2>
+           <h3 id="nomeView" class="negrito">Nome</h3>
+           <!-- Paragrafo de descrição -->
+           <h3 id="descricaoView">Descrição...</h3>
+          </div>
+  
+          <div class="areaContato">
+            <div style="width: 75%;height:19em">
+              <h3 id="contatoView" class="texto_conteudo negrito">Contato:</h3>
+              <div class="flex">
+                <h3 class="texto_contato">Instagram:</h3>
+                <h3 id="instagramView" class="texto_contato">usuário</h3>
+              </div>
+              <div class="flex">
+                <h3 class="texto_contato">Telefone:</h3>
+                <h3 id="telefoneView" class="texto_contato">número</h3>
+              </div>
+            </div>
+            <img id="imagemPerfil">
+          </div>
+          
+          <div>
+            <center>
+             <h4 class="rodape_conteudo" >Instagram:@classificados.unb</h4>
+             <h4 class="rodape_conteudo" >Acesse: tinyurl.com/cadastro-site-classificadosunb</h4>
+            </center>
+          </div>
+  
+        </div>
+      </center>
+      
+      <script>
+       //Atualização automática do texto de acordo com o valor inserido no input
+       function atualizarConteudo(idInput, idTexto) {
+        document.getElementById(idInput).onchange = function(){
+          var texto = document.getElementById(idInput).value;
+          document.getElementById(idTexto).innerHTML = texto;
+        };
+       };
+       
+       atualizarConteudo("inputTitulo","tituloView");
+       atualizarConteudo("inputNome","nomeView");
+       atualizarConteudo("inputDescricao","descricaoView");
+       atualizarConteudo("inputInstagram","instagramView");
+       atualizarConteudo("inputTelefone","telefoneView");
+  
+       
+       //Alteração da cor de fundo da pré-visualização
+       document.getElementById('coresRadio').onchange = function(){
+        
+        //Carregar valor selecionado no botão radio
+        let corFundo = document.querySelector( 'input[name="cor"]:checked').value; 
+  
+        function atualizarFundo(cor){
+         document.getElementById('preview').style.backgroundColor = cor; 
+        }
+  
+        switch (corFundo) {
+          case "Branco":
+            atualizarFundo('#ffffff')
+            break;
+          case "Amarelo":
+            atualizarFundo('#fff491')
+            break;
+          case "Verde":
+            atualizarFundo('#b4ffae')
+            break;
+          case "Azul":
+            atualizarFundo('#cae7ff')
+            break;
+          case "Rosa":
+            atualizarFundo('#ffd0e0')
+            break;
+          case "Laranja":
+            atualizarFundo('#ffd794')
+            break;
+        case false:
+            atualizarFundo('#ffffff')
+        }
+       }
+       //Fim da alteração da cor de fundo da pré-visualização
+       
+       //Atualização automatica da foto de perfil
+       document.getElementById("inputImagem").onchange = function(){
+            let foto = document.getElementById('imagemPerfil');
+            let leitor = new FileReader();
+            leitor.readAsDataURL(event.target.files[0]);
+            leitor.onload = function() {
+              foto.src = leitor.result; // data url
+            };
+            foto.onload = function() {
+              URL.revokeObjectURL(foto.src) // free memory
+            }
+       }
+       //Fim da atualização automatica da foto de perfil
+  
+      </script>
+
+      <br>
+      <br>
+      <br> 
+
+
       <button type="submit" style="margin-bottom: 1em;" class="btn waves-effect waves-light  indigo accent-3 right">
         Enviar
         <i style="font-size: 24px;" class="material-icons right">email</i>
@@ -162,144 +325,6 @@
     </form>
 
     <br>
-    <br>
-    <br>
-    
-    <style>
-      /* */
-      /* Quadrado em que se localiza a pré-visualização */
-      /* Zoom para caber na tela, na renderização o Zoom será removido */
-      #preview {
-        height: 1000px;
-        width: 1000px;
-        overflow: hidden;
-        background-color: rgb(255, 244, 145);
-        zoom: 50%;
-        overflow: hidden;
-        font-family: 'Arimo';
-      }
-      .texto_conteudo {
-        padding: 0em 1em 0em 5%;
-        text-align: left;
-      }
-      /* Permitir a quebra de linha do texto */
-      #descricaoView{
-        height: 9em;
-        margin-right: 1em;
-        white-space: pre-wrap;
-        word-wrap: break-word;
-        overflow: hidden;
-      }
-      .negrito{
-        font-weight: bold;
-      }
-      .texto_contato{
-        padding: 0em 0em 0em 5%;
-      }
-      .rodape_conteudo{
-        line-height: 40px;
-        margin: 0%;
-      }
-      .areaContato{
-        text-align: left;
-        display: inline-flex;
-        width: 95%;
-        overflow: hidden;
-      }
-      .flex{
-        display: flex;
-      }
-    </style>
-
-    <h5 class="left-align">Pré-visualização:</h5>
-    <br>
-    <center>
-      <div id="preview">
-        <div class="texto_conteudo">
-         <h2 id="tituloView" class="negrito">Título</h2>
-         <h3 id="nomeView" class="negrito">Nome</h3>
-         <!-- Paragrafo de descrição -->
-         <h3 id="descricaoView">Descrição...</h3>
-        </div>
-
-        <div class="areaContato">
-          <div style="width: 75%;height:19em">
-            <h3 id="contatoView" class="texto_conteudo negrito">Contato:</h3>
-            <div class="flex">
-              <h3 class="texto_contato">Instagram:</h3>
-              <h3 id="instagramView" class="texto_contato">usuário</h3>
-            </div>
-            <div class="flex">
-              <h3 class="texto_contato">Telefone:</h3>
-              <h3 id="telefoneView" class="texto_contato">número</h3>
-            </div>
-          </div>
-          <img id="imagemPerfil">
-        </div>
-        
-        <div>
-          <center>
-           <h4 class="rodape_conteudo" >Instagram:@classificados.unb</h4>
-           <h4 class="rodape_conteudo" >Acesse: tinyurl.com/cadastro-site-classificadosunb</h4>
-          </center>
-        </div>
-
-      </div>
-    </center>
-    
-    <script>
-     //Atualização automática do texto de acordo com o valor inserido no input
-     function atualizarConteudo(idInput, idTexto) {
-      document.getElementById(idInput).onchange = function(){
-        var texto = document.getElementById(idInput).value;
-        document.getElementById(idTexto).innerHTML = texto;
-      };
-     };
-     
-     atualizarConteudo("inputTitulo","tituloView");
-     atualizarConteudo("inputNome","nomeView");
-     atualizarConteudo("inputDescricao","descricaoView");
-     atualizarConteudo("inputInstagram","instagramView");
-     atualizarConteudo("inputTelefone","telefoneView");
-
-     
-     //Alteração da cor de fundo da pré-visualização
-     document.getElementById('coresRadio').onchange = function(){
-      
-      //Carregar valor selecionado no botão radio
-      let corFundo = document.querySelector( 'input[name="cor"]:checked').value; 
-
-      function atualizarFundo(cor){
-       document.getElementById('preview').style.backgroundColor = cor; 
-      }
-
-      switch (corFundo) {
-        case "Branco":
-          atualizarFundo('#ffffff')
-          break;
-        case "Amarelo":
-          atualizarFundo('#fff491')
-          break;
-        case "Verde":
-          atualizarFundo('#b4ffae')
-          break;
-        case "Azul":
-          atualizarFundo('#cae7ff')
-          break;
-        case "Rosa":
-          atualizarFundo('#ffd0e0')
-          break;
-        case "Laranja":
-          atualizarFundo('#ffd794')
-          break;
-      case false:
-          atualizarFundo('#ffffff')
-      }
-     }
-     //Fim da alteração da cor de fundo da pré-visualização
-
-    </script>
-
     <br>
     <br>
 

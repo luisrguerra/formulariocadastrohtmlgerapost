@@ -3,6 +3,12 @@
 
   <head>
     <title>Cadastro de anúncio</title>
+    
+    <!-- fontes -->
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet'>
+
+    <!-- Melhoria da visualização em smartphones -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
       input[type=file]::file-selector-button {
@@ -27,9 +33,6 @@
   <!-- Fontes -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-
-<!-- Melhoria da visualização em smartphones -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
   
   <div class="container">
 
@@ -37,25 +40,20 @@
     <h5 style="font-family: 'Roboto', sans-serif;" class="left-align">Formulário de cadastro de anúncio</h5>
     <br>
     
-    <div style="text-align:center;">
-    <img style="width: 20em; max-width: 95%;" src="img/exemplo.png">
-    <p>(Exemplo de anúncio)</p>
-    </div>
-    
     <!-- Configuração do envio das formações para o email atravéz do formsubmit.co -->
     <form target="_blank" action="https://formsubmit.co/luiseduardoribeiroguerra@gmail.com" method="POST" enctype="multipart/form-data">
       
       <h6 class="left-align">Título do anúncio:</h6>
-      <input type="text" name="Título" class="input-field" placeholder="Ex: Procura-se professor de matemática" maxlength = "35" required>
+      <input id="inputTitulo" type="text" name="Título" class="input-field" placeholder="Ex: Procura-se professor de matemática" maxlength = "35" required>
       
       <h6 class="left-align">Seu nome (nome completo):</h6>
-      <input type="text" name="Nome" class="input-field" placeholder="Ex: Alberto Santos Dumont" maxlength = "35" required>
+      <input id="inputNome" type="text" name="Nome" class="input-field" placeholder="Ex: Alberto Santos Dumont" maxlength = "35" required>
       
       <h6 class="left-align">Seu instagram:</h6>
       
       <div class="input-field">
         <img style="width: 28px;" class="prefix" src="img/instagram.svg">
-        <input name="Instagram" type="text" placeholder="Ex: @classificados.unb" maxlength = "30" required>
+        <input id="inputInstagram" name="Instagram" type="text" placeholder="Ex: @classificados.unb" maxlength = "30" required>
       </div>
 
       <p>
@@ -69,7 +67,7 @@
       
       <div class="input-field">
         <i class="material-icons prefix">phone</i>
-        <input name="Telefone" type="text" placeholder="Ex: (00) 0000-0000" maxlength = "19">
+        <input id="inputTelefone" name="Telefone" type="text" placeholder="Ex: (00) 0000-0000" maxlength = "19">
       </div>
 
       <p>
@@ -82,57 +80,59 @@
 
       <h6 class="left-align">Cor de fundo na postagem:</h6>
       <!-- Opções de cores, seleção tipo radio -->
-      <p>
-      <label>
-        <input class="with-gap" name="cor" value="Branco" type="radio" checked />
-        <span></span>
-        <i style="font-size: 24px;" class="material-icons left">cancel</i>
-      </label>
-      </p>
-      <p>
-      <label>
-        <input class="with-gap" name="cor" value="Amarelo" type="radio" />
-        <span></span>
-        <i style="font-size: 24px; color: #fff491;" class="material-icons left">circle</i>
-      </label>
-      </p>
-      <p>
-      <label>
-        <input class="with-gap" name="cor" value="Verde" type="radio" />
-        <span></span>
-        <i style="font-size: 24px; color: #b4ffae;" class="material-icons left">circle</i>
-      </label>
-      </p>
-      <p>
-      <label>
-        <input class="with-gap" name="cor" value="Azul" type="radio" />
-        <span></span>
-        <i style="font-size: 24px; color: #cae7ff;" class="material-icons left">circle</i>
-      </label>
-      </p>
-      <p>
-      <label>
-          <input class="with-gap" name="cor" value="Rosa" type="radio" />
+      <div id="coresRadio">
+        <p>
+        <label>
+          <input class="with-gap" name="cor" value="Branco" type="radio"/>
           <span></span>
-          <i style="font-size: 24px; color: #ffd0e0;" class="material-icons left">circle</i>
-      </label>
-      </p>
-      <p>
-      <label>
-        <input class="with-gap" name="cor" value="Laranja" type="radio" />
-        <span></span>
-        <i style="font-size: 24px; color: #ffd794;" class="material-icons left">circle</i>
-      </label>
-      </p>
+          <i style="font-size: 24px;" class="material-icons left">cancel</i>
+        </label>
+        </p>
+        <p>
+        <label>
+          <input class="with-gap" name="cor" value="Amarelo" type="radio" checked />
+          <span></span>
+          <i style="font-size: 24px; color: #fff491;" class="material-icons left">circle</i>
+        </label>
+        </p>
+        <p>
+        <label>
+          <input class="with-gap" name="cor" value="Verde" type="radio" />
+          <span></span>
+          <i style="font-size: 24px; color: #b4ffae;" class="material-icons left">circle</i>
+        </label>
+        </p>
+        <p>
+        <label>
+          <input class="with-gap" name="cor" value="Azul" type="radio" />
+          <span></span>
+          <i style="font-size: 24px; color: #cae7ff;" class="material-icons left">circle</i>
+        </label>
+        </p>
+        <p>
+        <label>
+            <input class="with-gap" name="cor" value="Rosa" type="radio" />
+            <span></span>
+            <i style="font-size: 24px; color: #ffd0e0;" class="material-icons left">circle</i>
+        </label>
+        </p>
+        <p>
+        <label>
+          <input class="with-gap" name="cor" value="Laranja" type="radio" />
+          <span></span>
+          <i style="font-size: 24px; color: #ffd794;" class="material-icons left">circle</i>
+        </label>
+        </p>
+      </div>
       <!-- Fim de opções de cores, seleção tipo radio -->
 
 
       <h6 class="left-align">Descrição do seu anúncio:</h6>
-      <textarea style="max-width: 16em;zoom: 123%" placeholder="Ex: Olá, estou procurando..." class="materialize-textarea" name="Descricao" rows="10" maxlength = "430" required></textarea>
+      <textarea id="inputDescricao" style="max-width: 16em;zoom: 123%" placeholder="Ex: Olá, estou procurando..." class="materialize-textarea" name="Descricao" rows="10" maxlength = "380" required></textarea>
       
       <br>
       <h6 class="left-align">Carregar uma foto sua (opcional):</h6>
-      <input type="file" name="attachment" accept="image/png, image/jpeg">
+      <input id="inputImagem" type="file" name="attachment" accept="image/png, image/jpeg">
       
       <br>
       <br>
@@ -149,13 +149,189 @@
       <br>
       <br>
 
+      <style>
+        /* */
+        /* Quadrado em que se localiza a pré-visualização */
+        /* Zoom para caber na tela, na renderização o Zoom será removido */
+        @media only screen and (max-width: 600px) {
+          #preview {
+            zoom: 30%;
+          }
+        }
+        @media only screen and (min-width: 600px) {
+          #preview {
+            zoom: 60%;
+          } 
+        }
+        #preview {
+          height: 1000px;
+          width: 1000px;
+          background-color: rgb(255, 244, 145);
+          overflow: hidden;
+          font-family: 'Arimo';
+          font-size: initial;
+        }
+        .texto_conteudo {
+          padding: 0em 1em 0em 5%;
+          text-align: left;
+        }
+        /* Permitir a quebra de linha do texto */
+        #descricaoView{
+          height: 9em;
+          margin-right: 1em;
+          white-space: pre-wrap;
+          word-wrap: break-word;
+          overflow: hidden;
+        }
+        .negrito{
+          font-weight: bold;
+        }
+        .texto_contato{
+          padding: 0em 0em 0em 5%;
+          margin-top: 0.3em;
+          margin-bottom: 0.3em;
+        }
+        .rodape_conteudo{
+          line-height: 32px;
+          margin: 0%;
+        }
+        .areaContato{
+          text-align: left;
+          display: inline-flex;
+          width: 95%;
+          overflow: hidden;
+        }
+        .flex{
+          display: flex;
+        }
+        #imagemPerfil{
+          max-width: 15em;
+          width: auto;
+          height: fit-content;
+          max-height: 15em;
+          margin: auto;
+        }
+      </style>
+  
+      <h5 class="left-align">Pré-visualização:</h5>
+      <br>
+      <center>
+        <div id="preview">
+          <div class="texto_conteudo">
+           <h2 id="tituloView" class="negrito">Título</h2>
+           <h3 id="nomeView" class="negrito">Nome</h3>
+           <!-- Paragrafo de descrição -->
+           <h3 id="descricaoView">Descrição...</h3>
+          </div>
+  
+          <div class="areaContato">
+            <div style="width: 75%;height:19em">
+              <h3 id="contatoView" class="texto_conteudo negrito">Contato:</h3>
+              <div class="flex">
+                <h3 class="texto_contato">Instagram:</h3>
+                <h3 id="instagramView" class="texto_contato">usuário</h3>
+              </div>
+              <div class="flex">
+                <h3 class="texto_contato">Telefone:</h3>
+                <h3 id="telefoneView" class="texto_contato">número</h3>
+              </div>
+            </div>
+            <img id="imagemPerfil">
+          </div>
+          
+          <div>
+            <center>
+             <h4 class="rodape_conteudo" >Instagram:@classificados.unb</h4>
+             <h4 class="rodape_conteudo" >Acesse: tinyurl.com/cadastro-site-classificadosunb</h4>
+            </center>
+          </div>
+  
+        </div>
+      </center>
+      
+      <script>
+       //Atualização automática do texto de acordo com o valor inserido no input
+       function atualizarConteudo(idInput, idTexto) {
+        document.getElementById(idInput).onchange = function(){
+          var texto = document.getElementById(idInput).value;
+          document.getElementById(idTexto).innerHTML = texto;
+        };
+       };
+       
+       atualizarConteudo("inputTitulo","tituloView");
+       atualizarConteudo("inputNome","nomeView");
+       atualizarConteudo("inputDescricao","descricaoView");
+       atualizarConteudo("inputInstagram","instagramView");
+       atualizarConteudo("inputTelefone","telefoneView");
+  
+       
+       //Alteração da cor de fundo da pré-visualização
+       document.getElementById('coresRadio').onchange = function(){
+        
+        //Carregar valor selecionado no botão radio
+        let corFundo = document.querySelector( 'input[name="cor"]:checked').value; 
+  
+        function atualizarFundo(cor){
+         document.getElementById('preview').style.backgroundColor = cor; 
+        }
+  
+        switch (corFundo) {
+          case "Branco":
+            atualizarFundo('#ffffff')
+            break;
+          case "Amarelo":
+            atualizarFundo('#fff491')
+            break;
+          case "Verde":
+            atualizarFundo('#b4ffae')
+            break;
+          case "Azul":
+            atualizarFundo('#cae7ff')
+            break;
+          case "Rosa":
+            atualizarFundo('#ffd0e0')
+            break;
+          case "Laranja":
+            atualizarFundo('#ffd794')
+            break;
+        case false:
+            atualizarFundo('#ffffff')
+        }
+       }
+       //Fim da alteração da cor de fundo da pré-visualização
+       
+       //Atualização automatica da foto de perfil
+       document.getElementById("inputImagem").onchange = function(){
+            let foto = document.getElementById('imagemPerfil');
+            let leitor = new FileReader();
+            leitor.readAsDataURL(event.target.files[0]);
+            leitor.onload = function() {
+              foto.src = leitor.result; // data url
+            };
+            foto.onload = function() {
+              URL.revokeObjectURL(foto.src) // free memory
+            }
+       }
+       //Fim da atualização automatica da foto de perfil
+  
+      </script>
+
+      <br>
+      <br>
+      <br> 
+
+
       <button type="submit" style="margin-bottom: 1em;" class="btn waves-effect waves-light  indigo accent-3 right">
         Enviar
         <i style="font-size: 24px;" class="material-icons right">email</i>
       </button>
 
-
     </form>
+
+    <br>
+    <br>
+    <br>
+
   </div>
 
 </html> 

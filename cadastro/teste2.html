@@ -1,0 +1,397 @@
+<!DOCTYPE html> 
+<html> 
+
+  <head>
+    <title>Cadastro de anúncio</title>
+    
+    <!-- fontes -->
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet'>
+
+    <!-- Melhoria da visualização em smartphones -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+      input[type=file]::file-selector-button {
+        border: none;
+        background-color: #3d5afe;
+        color: white;
+        border-radius: 4px;
+        padding: 0.5em;
+        margin-right: 0.5em;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  
+  <!-- Material Design -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- Ícones -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  
+  <!-- renderizar html to png -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+
+  <div class="container">
+
+    <h3 style="font-family: 'Bebas Neue', sans-serif;" class="left-align">classificados.unb</h3>
+    <h5 style="font-family: 'Roboto', sans-serif;" class="left-align">Formulário de cadastro de anúncio</h5>
+    <br>
+    
+    <!-- Configuração do envio das formações para o email atravéz do formsubmit.co -->
+    <form target="_blank" action="https://formsubmit.co/luiseduardoribeiroguerra@gmail.com" method="POST" enctype="multipart/form-data">
+      
+      <h6 class="left-align">Título do anúncio:</h6>
+      <input id="inputTitulo" type="text" name="Título" class="input-field" placeholder="Ex: Procura-se professor de matemática" maxlength = "35" required>
+      
+      <h6 class="left-align">Seu nome (nome completo):</h6>
+      <input id="inputNome" type="text" name="Nome" class="input-field" placeholder="Ex: Alberto Santos Dumont" maxlength = "35" required>
+      
+      <h6 class="left-align">Seu instagram:</h6>
+      
+      <div class="input-field">
+        <img style="width: 28px;" class="prefix" src="img/instagram.svg">
+        <input id="inputInstagram" name="Instagram" type="text" placeholder="Ex: @classificados.unb" maxlength = "30" required>
+      </div>
+
+      <p>
+        <label>
+          <input type="checkbox" name="Foto Instagram" class="filled-in" checked="checked" />
+          <span>Usar a foto de perfil do instagram</span>
+        </label>
+      </p>
+      
+      <h6 class="left-align">Número de telefone (opcional):</h6>
+      
+      <div class="input-field">
+        <i class="material-icons prefix">phone</i>
+        <input id="inputTelefone" name="Telefone" type="text" placeholder="Ex: (00) 0000-0000" maxlength = "19">
+      </div>
+
+      <p>
+        <label>
+          <input id="inputWhatsApp" type="checkbox" name="WhatsApp" class="filled-in"/>
+          <span>Tem WhatsApp</span>
+        </label>
+      </p>
+
+
+      <h6 class="left-align">Cor de fundo na postagem:</h6>
+      <!-- Opções de cores, seleção tipo radio -->
+      <div id="coresRadio">
+        <p>
+        <label>
+          <input class="with-gap" name="cor" value="Branco" type="radio"/>
+          <span></span>
+          <i style="font-size: 24px;" class="material-icons left">cancel</i>
+        </label>
+        </p>
+        <p>
+        <label>
+          <input class="with-gap" name="cor" value="Amarelo" type="radio" checked />
+          <span></span>
+          <i style="font-size: 24px; color: #fff491;" class="material-icons left">circle</i>
+        </label>
+        </p>
+        <p>
+        <label>
+          <input class="with-gap" name="cor" value="Verde" type="radio" />
+          <span></span>
+          <i style="font-size: 24px; color: #b4ffae;" class="material-icons left">circle</i>
+        </label>
+        </p>
+        <p>
+        <label>
+          <input class="with-gap" name="cor" value="Azul" type="radio" />
+          <span></span>
+          <i style="font-size: 24px; color: #cae7ff;" class="material-icons left">circle</i>
+        </label>
+        </p>
+        <p>
+        <label>
+            <input class="with-gap" name="cor" value="Rosa" type="radio" />
+            <span></span>
+            <i style="font-size: 24px; color: #ffd0e0;" class="material-icons left">circle</i>
+        </label>
+        </p>
+        <p>
+        <label>
+          <input class="with-gap" name="cor" value="Laranja" type="radio" />
+          <span></span>
+          <i style="font-size: 24px; color: #ffd794;" class="material-icons left">circle</i>
+        </label>
+        </p>
+      </div>
+      <!-- Fim de opções de cores, seleção tipo radio -->
+
+
+      <h6 class="left-align">Descrição do seu anúncio:</h6>
+      <textarea id="inputDescricao" style="max-width: 16em;zoom: 123%" placeholder="Ex: Olá, estou procurando..." class="materialize-textarea" name="Descricao" rows="10" maxlength = "380" required></textarea>
+      
+      <br>
+      <h6 class="left-align">Carregar uma foto sua (opcional):</h6>
+      <input id="inputImagem" type="file" name="attachment" accept="image/png, image/jpeg">
+      
+      <br>
+      <br>
+      <h6 class="left-align">Alguma sugestão para o classificados.unb? Respondendo, você nos retribui ajudando a melhorar o projeto.</h6>
+      <textarea placeholder="Ex: Poderia melhorar..." class="materialize-textarea" name="Sugestao" rows="10" required></textarea>
+      
+      <input type="hidden" name="_subject" value="Novo cadastro">
+
+      <!-- Redirecionamento de site após o formulário ser enviado -->
+      <input type="hidden" name="_next" value="https://luisrguerra.github.io/formulariocadastrohtmlgerapost/cadastro/concluido/">
+      
+      <input type="hidden" name="_captcha" value="false">
+      
+      <br>
+      <br>
+
+      <style>
+        /* */
+        /* Quadrado em que se localiza a pré-visualização */
+        /* Zoom para caber na tela, na renderização o Zoom será removido */
+        @media only screen and (max-width: 600px) {
+          #preview {
+            zoom: 30%;
+          }
+        }
+        @media only screen and (min-width: 600px) {
+          #preview {
+            zoom: 60%;
+          } 
+        }
+        #preview {
+          height: 1000px;
+          width: 1000px;
+          background-color: rgb(255, 244, 145);
+          overflow: hidden;
+          font-family: 'Arimo';
+          font-size: initial;
+        }
+        .texto_conteudo {
+          padding: 0em 1em 0em 5%;
+          text-align: left;
+        }
+        /* Permitir a quebra de linha do texto */
+        #descricaoView{
+          height: 9em;
+          margin-right: 1em;
+          white-space: pre-wrap;
+          word-wrap: break-word;
+          overflow: hidden;
+        }
+        .negrito{
+          font-weight: bold;
+        }
+        .texto_contato{
+          padding: 0em 0em 0em 5%;
+          margin-top: 0.3em;
+          margin-bottom: 0.3em;
+        }
+        .rodape_conteudo{
+          line-height: 32px;
+          margin: 0%;
+        }
+        .areaContato{
+          text-align: left;
+          display: inline-flex;
+          width: 95%;
+          overflow: hidden;
+        }
+        .flex{
+          display: flex;
+        }
+        #imagemPerfil{
+          max-width: 15em;
+          width: auto;
+          height: fit-content;
+          max-height: 15em;
+          margin: auto;
+        }
+      </style>
+  
+      <h5 class="left-align">Pré-visualização:</h5>
+      <br>
+      <center>
+        <div id="preview">
+          <div class="texto_conteudo">
+           <h2 id="tituloView" class="negrito">Título</h2>
+           <h3 id="nomeView" class="negrito">Nome</h3>
+           <!-- Paragrafo de descrição -->
+           <h3 id="descricaoView">Descrição...</h3>
+          </div>
+  
+          <div class="areaContato">
+            <div style="width: 75%;height:19em">
+              <h3 id="contatoView" class="texto_conteudo negrito">Contato:</h3>
+              <div class="flex">
+                <h3 class="texto_contato">Instagram:</h3>
+                <h3 id="instagramView" class="texto_contato">usuário</h3>
+              </div>
+              <div class="flex">
+                <h3 id="idTelefoneTitulo" style="display: none;" class="texto_contato">Telefone:</h3>
+                <h3 id="telefoneView" class="texto_contato"></h3>
+              </div>
+            </div>
+            <img id="imagemPerfil">
+          </div>
+          
+          <div>
+            <center>
+             <h4 class="rodape_conteudo" >Instagram:@classificados.unb</h4>
+             <h4 class="rodape_conteudo" >Acesse: tinyurl.com/cadastro-site-classificadosunb</h4>
+            </center>
+          </div>
+  
+        </div>
+      </center>
+      
+      <script>
+       //Atualização automática do texto de acordo com o valor inserido no input
+       function atualizarConteudo(idInput, idTexto) {
+        document.getElementById(idInput).onchange = function(){
+          var texto = document.getElementById(idInput).value;
+          document.getElementById(idTexto).innerHTML = texto;
+        };
+       };
+       
+       atualizarConteudo("inputTitulo","tituloView");
+       atualizarConteudo("inputNome","nomeView");
+       atualizarConteudo("inputDescricao","descricaoView");
+       atualizarConteudo("inputInstagram","instagramView");
+  
+       
+       //Alteração da cor de fundo da pré-visualização
+       document.getElementById('coresRadio').onchange = function(){
+        
+        //Carregar valor selecionado no botão radio
+        let corFundo = document.querySelector( 'input[name="cor"]:checked').value; 
+  
+        function atualizarFundo(cor){
+         document.getElementById('preview').style.backgroundColor = cor; 
+        }
+  
+        switch (corFundo) {
+          case "Branco":
+            atualizarFundo('#ffffff')
+            break;
+          case "Amarelo":
+            atualizarFundo('#fff491')
+            break;
+          case "Verde":
+            atualizarFundo('#b4ffae')
+            break;
+          case "Azul":
+            atualizarFundo('#cae7ff')
+            break;
+          case "Rosa":
+            atualizarFundo('#ffd0e0')
+            break;
+          case "Laranja":
+            atualizarFundo('#ffd794')
+            break;
+        case false:
+            atualizarFundo('#ffffff')
+        }
+       }
+       //Fim da alteração da cor de fundo da pré-visualização
+       
+       //Atualização automatica da foto de perfil
+       document.getElementById("inputImagem").onchange = function(){
+            let foto = document.getElementById('imagemPerfil');
+            let leitor = new FileReader();
+            leitor.readAsDataURL(event.target.files[0]);
+            leitor.onload = function() {
+              foto.src = leitor.result; // data url
+            };
+            foto.onload = function() {
+              URL.revokeObjectURL(foto.src) // free memory
+            }
+       }
+       //Fim da atualização automatica da foto de perfil
+
+       //Mudar na área de contato se é whatsapp ou telefone       
+       document.getElementById("inputWhatsApp").onchange = function(){
+        if (document.getElementById("inputWhatsApp").checked == true){
+          document.getElementById("idTelefoneTitulo").innerHTML = "WhatsApp:";
+        }
+        else{
+          document.getElementById("idTelefoneTitulo").innerHTML = "Telefone:";
+        }
+       }
+       //Fim de mudar na área de contato se é whatsapp ou telefone  
+       
+       //Atualizar número de telefone na preview
+       document.getElementById("inputTelefone").onchange = function(){
+         
+         //inserir dados do input na preview
+         telefone = document.getElementById("inputTelefone").value;
+         document.getElementById("telefoneView").innerHTML = telefone;
+         
+         //Esconder título na preview se o campo estiver vázio
+         tituloTelefone = document.getElementById("idTelefoneTitulo");
+         if (document.getElementById("inputTelefone").value.length > 0){
+          tituloTelefone.style.display = "inherit";
+         }
+         else{
+          tituloTelefone.style.display = "none";
+         }
+       }
+       //Fim de atualizar número de telefone
+
+      </script>
+
+      <br>
+      <br>
+      <br> 
+
+
+      <button type="submit" style="margin-bottom: 1em;" class="btn waves-effect waves-light  indigo accent-3 right">
+        Enviar
+        <i style="font-size: 24px;" class="material-icons right">email</i>
+      </button>
+      <br>
+      <br>
+      <br>
+      <button onclick="funcaobtn_salvar()" style="margin-bottom: 1em;" class="btn waves-effect waves-light  indigo accent-3 right">Salvar</button>
+      
+      <script>
+        //renderizar html em png
+        function funcaobtn_salvar(){
+                elemento = document.getElementById("preview")
+
+                var zoom_tmp = elemento.style.zoom;
+                elemento.style.zoom = "100%";
+
+                html2canvas(elemento, {
+
+                    
+                    onrendered: function(canvas) {
+                      var dados_imagem =  canvas.toDataURL("image/png"); 
+                      
+                      elemento.style.zoom = zoom_tmp;
+
+                      var link = document.createElement('a');
+                      link.href = dados_imagem;
+                      link.download = 'imagem.png';
+                      link.click();
+                    } 
+                });      
+        }; 
+      </script>
+
+    </form>
+
+    <br>
+    <br>
+    <br>
+
+  </div>
+
+</html> 

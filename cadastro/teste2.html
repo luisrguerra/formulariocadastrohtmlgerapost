@@ -44,7 +44,7 @@
     <br>
     
     <!-- Configuração do envio das formações para o email atravéz do formsubmit.co -->
-    <form target="_blank" action="https://formsubmit.co/luiseduardoribeiroguerra@gmail.com" method="POST" enctype="multipart/form-data">
+    <form id="formulario" target="_blank" action="https://formsubmit.co/luiseduardoribeiroguerra@gmail.com" method="POST" enctype="multipart/form-data">
       
       <h6 class="left-align">Título do anúncio:</h6>
       <input id="inputTitulo" type="text" name="Título" class="input-field" placeholder="Ex: Procura-se professor de matemática" maxlength = "35" required>
@@ -388,7 +388,9 @@
                       var link = document.createElement('a');
                       link.href = dados_imagem;
                       link.download = 'imagem.png';
-                      link.click();
+                      //link.click();
+
+                      document.getElementById('formulario').submit();
                     } 
                 });      
         }; 

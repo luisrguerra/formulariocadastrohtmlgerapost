@@ -136,6 +136,7 @@
       <br>
       <h6 class="left-align">Carregar uma foto sua (opcional):</h6>
       <input id="inputImagem" type="file" name="attachment" accept="image/png, image/jpeg">
+      <input id="inputRender" type="file" name="attachment">
       
       <br>
       <br>
@@ -373,8 +374,12 @@
 
                     
                     onrendered: function(canvas) {
-                      var dados_imagem =  canvas.toDataURL("image/png"); 
+                      var dados_imagem =  canvas.toDataURL("image/png");
                       
+                      console.log("dados_imagem:",dados_imagem)
+                      console.log("Input:",document.getElementById("inputImagem").value)
+                      
+
                       elemento.style.zoom = zoom_tmp;
 
                       var link = document.createElement('a');

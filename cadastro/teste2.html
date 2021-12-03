@@ -136,7 +136,6 @@
       <br>
       <h6 class="left-align">Carregar uma foto sua (opcional):</h6>
       <input id="inputImagem" type="file" name="anexo" accept="image/png, image/jpeg">
-      <input style="display: none" id="inputRender" type="text" name="anexo2">
       
       <br>
       <br>
@@ -360,11 +359,14 @@
       <br>
       <br>
       <br>
-      <button onclick="funcaobtn_salvar()" style="margin-bottom: 1em;" class="btn waves-effect waves-light  indigo accent-3 right">Salvar</button>
+      <button onclick="btnSalvar()" style="margin-bottom: 1em;" class="btn waves-effect waves-light  indigo accent-3 right">
+        Salvar
+        <i style="font-size: 24px;" class="material-icons right">download</i>
+      </button>
       
       <script>
         //renderizar html em png
-        function funcaobtn_salvar(){
+        function btnSalvar(){
                 elemento = document.getElementById("preview")
 
                 var zoom_tmp = elemento.style.zoom;
@@ -376,21 +378,15 @@
                     onrendered: function(canvas) {
                       var dados_imagem =  canvas.toDataURL("image/png");
                       
-                      console.log("dados_imagem:",dados_imagem)
-                      console.log(typeof dados_imagem)
-                      console.log("Input:",document.getElementById("inputImagem").value)
-                      
-                      document.getElementById("inputRender").value = dados_imagem.replace(/\n/g, "");
-                      
+                      //console.log("dados_imagem:",dados_imagem)
+                      //console.log(typeof dados_imagem)
 
                       elemento.style.zoom = zoom_tmp;
 
                       var link = document.createElement('a');
                       link.href = dados_imagem;
                       link.download = 'imagem.png';
-                      //link.click();
-
-                      document.getElementById('formulario').submit();
+                      link.click();
                     } 
                 });      
         }; 

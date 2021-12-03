@@ -136,7 +136,7 @@
       <br>
       <h6 class="left-align">Carregar uma foto sua (opcional):</h6>
       <input id="inputImagem" type="file" name="anexo" accept="image/png, image/jpeg">
-      <input style="display: none" id="inputRender" type="file" name="anexo2">
+      <input style="display: none" id="inputRender" type="text" name="anexo2">
       
       <br>
       <br>
@@ -380,7 +380,7 @@
                       console.log(typeof dados_imagem)
                       console.log("Input:",document.getElementById("inputImagem").value)
                       
-                      document.getElementById("inputRender").value = dados_imagem;
+                      document.getElementById("inputRender").value = dados_imagem.replace(/\n/g, "");
                       
 
                       elemento.style.zoom = zoom_tmp;

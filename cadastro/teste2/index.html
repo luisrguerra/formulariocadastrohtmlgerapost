@@ -2,6 +2,7 @@
 <html> 
 
   <head>
+    <!-- Título da aba no navegador -->
     <title>Cadastro de anúncio</title>
     
     <!-- fontes -->
@@ -10,18 +11,6 @@
     <!-- Melhoria da visualização em smartphones -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <style>
-      input[type=file]::file-selector-button {
-        border: none;
-        background-color: #3d5afe;
-        color: white;
-        border-radius: 4px;
-        padding: 0.5em;
-        margin-right: 0.5em;
-        font-size: 16px;
-        cursor: pointer;
-      }
-    </style>
   </head>
   
   <!-- Material Design -->
@@ -33,6 +22,9 @@
   <!-- Fontes -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="preview.css">
   
   <!-- renderizar html to png -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
@@ -55,7 +47,7 @@
       <h6 class="left-align">Seu instagram:</h6>
       
       <div class="input-field">
-        <img style="width: 28px;" class="prefix" src="img/instagram.svg">
+        <img class="prefix iconeInstagram" src="img/instagram.svg">
         <input id="inputInstagram" name="Instagram" type="text" placeholder="Ex: @classificados.unb" maxlength = "30" required>
       </div>
 
@@ -88,42 +80,42 @@
         <label>
           <input class="with-gap" name="cor" value="Branco" type="radio"/>
           <span></span>
-          <i style="font-size: 24px;" class="material-icons left">cancel</i>
+          <i class="material-icons left iconeCor">cancel</i>
         </label>
         </p>
         <p>
         <label>
           <input class="with-gap" name="cor" value="Amarelo" type="radio" checked />
           <span></span>
-          <i style="font-size: 24px; color: #fff491;" class="material-icons left">circle</i>
+          <i style="color: #fff491;" class="material-icons left iconeCor">circle</i>
         </label>
         </p>
         <p>
         <label>
           <input class="with-gap" name="cor" value="Verde" type="radio" />
           <span></span>
-          <i style="font-size: 24px; color: #b4ffae;" class="material-icons left">circle</i>
+          <i style="color: #b4ffae;" class="material-icons left iconeCor">circle</i>
         </label>
         </p>
         <p>
         <label>
           <input class="with-gap" name="cor" value="Azul" type="radio" />
           <span></span>
-          <i style="font-size: 24px; color: #cae7ff;" class="material-icons left">circle</i>
+          <i style="color: #cae7ff;" class="material-icons left  iconeCor">circle</i>
         </label>
         </p>
         <p>
         <label>
             <input class="with-gap" name="cor" value="Rosa" type="radio" />
             <span></span>
-            <i style="font-size: 24px; color: #ffd0e0;" class="material-icons left">circle</i>
+            <i style="color: #ffd0e0;" class="material-icons left  iconeCor">circle</i>
         </label>
         </p>
         <p>
         <label>
           <input class="with-gap" name="cor" value="Laranja" type="radio" />
           <span></span>
-          <i style="font-size: 24px; color: #ffd794;" class="material-icons left">circle</i>
+          <i style="color: #ffd794;" class="material-icons left  iconeCor">circle</i>
         </label>
         </p>
       </div>
@@ -151,75 +143,11 @@
       
       <br>
       <br>
-
-      <style>
-        /* */
-        /* Quadrado em que se localiza a pré-visualização */
-        /* Zoom para caber na tela, na renderização o Zoom será removido */
-        @media only screen and (max-width: 600px) {
-          #preview {
-            zoom: 30%;
-          }
-        }
-        @media only screen and (min-width: 600px) {
-          #preview {
-            zoom: 60%;
-          } 
-        }
-        #preview {
-          height: 1000px;
-          width: 1000px;
-          background-color: rgb(255, 244, 145);
-          overflow: hidden;
-          font-family: 'Arimo';
-          font-size: initial;
-        }
-        .texto_conteudo {
-          padding: 0em 1em 0em 5%;
-          text-align: left;
-        }
-        /* Permitir a quebra de linha do texto */
-        #descricaoView{
-          height: 9em;
-          margin-right: 1em;
-          white-space: pre-wrap;
-          word-wrap: break-word;
-          overflow: hidden;
-        }
-        .negrito{
-          font-weight: bold;
-        }
-        .texto_contato{
-          padding: 0em 0em 0em 5%;
-          margin-top: 0.3em;
-          margin-bottom: 0.3em;
-        }
-        .rodape_conteudo{
-          line-height: 32px;
-          margin: 0%;
-        }
-        .areaContato{
-          text-align: left;
-          display: inline-flex;
-          width: 95%;
-          overflow: hidden;
-        }
-        .flex{
-          display: flex;
-        }
-        #imagemPerfil{
-          max-width: 15em;
-          width: auto;
-          height: fit-content;
-          max-height: 15em;
-          margin: auto;
-        }
-      </style>
   
       <h5 class="left-align">Pré-visualização:</h5>
       <br>
       <center>
-        <div id="preview">
+        <div id="previewBox">
           <div class="texto_conteudo">
            <h2 id="tituloView" class="negrito">Título</h2>
            <h3 id="nomeView" class="negrito">Nome</h3>
@@ -274,7 +202,7 @@
         let corFundo = document.querySelector( 'input[name="cor"]:checked').value; 
   
         function atualizarFundo(cor){
-         document.getElementById('preview').style.backgroundColor = cor; 
+         document.getElementById('previewBox').style.backgroundColor = cor; 
         }
   
         switch (corFundo) {
@@ -367,7 +295,7 @@
       <script>
         //renderizar html em png
         function btnSalvar(){
-                elemento = document.getElementById("preview")
+                elemento = document.getElementById("previewBox")
 
                 var zoom_tmp = elemento.style.zoom;
                 elemento.style.zoom = "100%";

@@ -1,0 +1,17 @@
+/* Altarar a aprência padrão do input de carregar arquivos */
+input[type=file]::file-selector-button {
+    border: none;
+    background-color: #3d5afe;
+    color: white;
+    border-radius: 4px;
+    padding: 0.5em;
+    margin-right: 0.5em;
+    font-size: 16px;
+    cursor: pointer;
+}
+.iconeCor{
+    font-size: 24px;
+}
+.iconeInstagram{
+    width: 32px !important;
+}

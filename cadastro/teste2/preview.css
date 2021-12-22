@@ -1,0 +1,61 @@
+/* */
+/* Quadrado em que se localiza a pré-visualização */
+/* Zoom para caber na tela, na renderização o Zoom será removido */
+@media only screen and (max-width: 600px) {
+  #previewBox {
+    zoom: 30%;
+  }
+}
+@media only screen and (min-width: 600px) {
+  #previewBox {
+    zoom: 60%;
+  } 
+}
+#previewBox {
+  height: 1000px;
+  width: 1000px;
+  background-color: rgb(255, 244, 145);
+  overflow: hidden;
+  font-family: 'Arimo';
+  font-size: initial;
+}
+.texto_conteudo {
+  padding: 0em 1em 0em 5%;
+  text-align: left;
+}
+/* Permitir a quebra de linha do texto */
+#descricaoView{
+  height: 9em;
+  margin-right: 1em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+.negrito{
+  font-weight: bold;
+}
+.texto_contato{
+  padding: 0em 0em 0em 5%;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+.rodape_conteudo{
+  line-height: 32px;
+  margin: 0%;
+}
+.areaContato{
+  text-align: left;
+  display: inline-flex;
+  width: 95%;
+  overflow: hidden;
+}
+.flex{
+  display: flex;
+}
+#imagemPerfil{
+  max-width: 15em;
+  width: auto;
+  height: fit-content;
+  max-height: 15em;
+  margin: auto;
+}

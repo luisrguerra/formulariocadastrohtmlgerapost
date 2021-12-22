@@ -148,7 +148,7 @@
       <br>
       <center>
         <div id="previewBox">
-          <div class="texto_conteudo">
+          <div class="ajustesTextoPreview">
            <h2 id="tituloView" class="negrito">Título</h2>
            <h3 id="nomeView" class="negrito">Nome</h3>
            <!-- Paragrafo de descrição -->
@@ -157,14 +157,14 @@
   
           <div class="areaContato">
             <div style="width: 75%;height:19em">
-              <h3 id="contatoView" class="texto_conteudo negrito">Contato:</h3>
+              <h3 id="contatoView" class="ajustesTextoPreview negrito">Contato:</h3>
               <div class="flex">
-                <h3 class="texto_contato">Instagram:</h3>
-                <h3 id="instagramView" class="texto_contato">usuário</h3>
+                <h3 class="ajustesContatos">Instagram:</h3>
+                <h3 id="instagramView" class="ajustesContatos">usuário</h3>
               </div>
               <div class="flex">
-                <h3 id="idTelefoneTitulo" style="display: none;" class="texto_contato">Telefone:</h3>
-                <h3 id="telefoneView" class="texto_contato"></h3>
+                <h3 id="idTelefoneTitulo" style="display: none;" class="ajustesContatos">Telefone:</h3>
+                <h3 id="telefoneView" class="ajustesContatos"></h3>
               </div>
             </div>
             <img id="imagemPerfil">
@@ -172,108 +172,15 @@
           
           <div>
             <center>
-             <h4 class="rodape_conteudo" >Instagram:@classificados.unb</h4>
-             <h4 class="rodape_conteudo" >Acesse: tinyurl.com/cadastro-site-classificadosunb</h4>
+             <h4 class="ajustesRodape" >Instagram:@classificados.unb</h4>
+             <h4 class="ajustesRodape" >Acesse: tinyurl.com/cadastro-site-classificadosunb</h4>
             </center>
           </div>
   
         </div>
       </center>
       
-      <script>
-       //Atualização automática do texto de acordo com o valor inserido no input
-       function atualizarConteudo(idInput, idTexto) {
-        document.getElementById(idInput).onchange = function(){
-          var texto = document.getElementById(idInput).value;
-          document.getElementById(idTexto).innerHTML = texto;
-        };
-       };
-       
-       atualizarConteudo("inputTitulo","tituloView");
-       atualizarConteudo("inputNome","nomeView");
-       atualizarConteudo("inputDescricao","descricaoView");
-       atualizarConteudo("inputInstagram","instagramView");
-  
-       
-       //Alteração da cor de fundo da pré-visualização
-       document.getElementById('coresRadio').onchange = function(){
-        
-        //Carregar valor selecionado no botão radio
-        let corFundo = document.querySelector( 'input[name="cor"]:checked').value; 
-  
-        function atualizarFundo(cor){
-         document.getElementById('previewBox').style.backgroundColor = cor; 
-        }
-  
-        switch (corFundo) {
-          case "Branco":
-            atualizarFundo('#ffffff')
-            break;
-          case "Amarelo":
-            atualizarFundo('#fff491')
-            break;
-          case "Verde":
-            atualizarFundo('#b4ffae')
-            break;
-          case "Azul":
-            atualizarFundo('#cae7ff')
-            break;
-          case "Rosa":
-            atualizarFundo('#ffd0e0')
-            break;
-          case "Laranja":
-            atualizarFundo('#ffd794')
-            break;
-        case false:
-            atualizarFundo('#ffffff')
-        }
-       }
-       //Fim da alteração da cor de fundo da pré-visualização
-       
-       //Atualização automatica da foto de perfil
-       document.getElementById("inputImagem").onchange = function(){
-            let foto = document.getElementById('imagemPerfil');
-            let leitor = new FileReader();
-            leitor.readAsDataURL(event.target.files[0]);
-            leitor.onload = function() {
-              foto.src = leitor.result; // data url
-            };
-            foto.onload = function() {
-              URL.revokeObjectURL(foto.src) // free memory
-            }
-       }
-       //Fim da atualização automatica da foto de perfil
-
-       //Mudar na área de contato se é whatsapp ou telefone       
-       document.getElementById("inputWhatsApp").onchange = function(){
-        if (document.getElementById("inputWhatsApp").checked == true){
-          document.getElementById("idTelefoneTitulo").innerHTML = "WhatsApp:";
-        }
-        else{
-          document.getElementById("idTelefoneTitulo").innerHTML = "Telefone:";
-        }
-       }
-       //Fim de mudar na área de contato se é whatsapp ou telefone  
-       
-       //Atualizar número de telefone na preview
-       document.getElementById("inputTelefone").onchange = function(){
-         
-         //inserir dados do input na preview
-         telefone = document.getElementById("inputTelefone").value;
-         document.getElementById("telefoneView").innerHTML = telefone;
-         
-         //Esconder título na preview se o campo estiver vázio
-         tituloTelefone = document.getElementById("idTelefoneTitulo");
-         if (document.getElementById("inputTelefone").value.length > 0){
-          tituloTelefone.style.display = "inherit";
-         }
-         else{
-          tituloTelefone.style.display = "none";
-         }
-       }
-       //Fim de atualizar número de telefone
-
-      </script>
+      <script src="automatico.js"></script>
 
       <br>
       <br>
@@ -292,33 +199,7 @@
         <i style="font-size: 24px;" class="material-icons right">download</i>
       </button>
       
-      <script>
-        //renderizar html em png
-        function btnSalvar(){
-                elemento = document.getElementById("previewBox")
-
-                var zoom_tmp = elemento.style.zoom;
-                elemento.style.zoom = "100%";
-
-                html2canvas(elemento, {
-
-                    
-                    onrendered: function(canvas) {
-                      var dados_imagem =  canvas.toDataURL("image/png");
-                      
-                      //console.log("dados_imagem:",dados_imagem)
-                      //console.log(typeof dados_imagem)
-
-                      elemento.style.zoom = zoom_tmp;
-
-                      var link = document.createElement('a');
-                      link.href = dados_imagem;
-                      link.download = 'imagem.png';
-                      link.click();
-                    } 
-                });      
-        }; 
-      </script>
+      <script src="renderizar.js"></script>
 
     </form>
 

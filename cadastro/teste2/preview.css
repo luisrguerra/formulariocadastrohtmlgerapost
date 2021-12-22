@@ -19,7 +19,7 @@
   font-family: 'Arimo';
   font-size: initial;
 }
-.texto_conteudo {
+.ajustesTextoPreview {
   padding: 0em 1em 0em 5%;
   text-align: left;
 }
@@ -34,12 +34,12 @@
 .negrito{
   font-weight: bold;
 }
-.texto_contato{
+.ajustesContatos{
   padding: 0em 0em 0em 5%;
   margin-top: 0.3em;
   margin-bottom: 0.3em;
 }
-.rodape_conteudo{
+.ajustesRodape{
   line-height: 32px;
   margin: 0%;
 }

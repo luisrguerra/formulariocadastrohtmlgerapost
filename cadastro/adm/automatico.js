@@ -23,11 +23,27 @@ function atualizarTamanho(idInput, idTexto) {
   };
 };
 
+function atualizarTamanhoInstagram(idInput, idTexto) {
+  document.getElementById(idInput).onchange = function(){
+    var texto = document.getElementById(idInput).value;
+    var tamanhoTexto = texto.length;
+    if (tamanhoTexto <= 19){
+      document.getElementById(idTexto).style.fontSize = "3.1rem";
+    }
+    else if(tamanhoTexto > 19 && tamanhoTexto < 25){
+      document.getElementById(idTexto).style.fontSize = "2.8rem";
+    }
+    else{
+      document.getElementById(idTexto).style.fontSize = "2.3rem";
+    }
+    document.getElementById(idTexto).innerHTML = texto;
+  };
+};
+
 atualizarConteudo("inputTitulo","tituloView");
 atualizarConteudo("inputNome","nomeView");
-//atualizarConteudo("inputDescricao","descricaoView");
 atualizarTamanho("inputDescricao","descricaoView");
-atualizarConteudo("inputInstagram","instagramView");
+atualizarTamanhoInstagram("inputInstagram","instagramView");
 
 
 //Alteração da cor de fundo da pré-visualização

@@ -6,9 +6,24 @@ function atualizarConteudo(idInput, idTexto) {
  };
 };
 
+function atualizarTamanho(idInput, idTexto) {
+  document.getElementById(idInput).onchange = function(){
+    var texto = document.getElementById(idInput).value;
+    var tamanhoTexto = texto.length;
+    if (tamanhoTexto < 150){
+      document.getElementById(idTexto).style.fontSize = "58px";
+    }
+    else{
+      document.getElementById(idTexto).style.fontSize = "39px";
+    }
+    document.getElementById(idTexto).innerHTML = texto;
+  };
+};
+
 atualizarConteudo("inputTitulo","tituloView");
 atualizarConteudo("inputNome","nomeView");
-atualizarConteudo("inputDescricao","descricaoView");
+//atualizarConteudo("inputDescricao","descricaoView");
+atualizarTamanho("inputDescricao","descricaoView");
 atualizarConteudo("inputInstagram","instagramView");
 
 

@@ -15,3 +15,7 @@ input[type=file]::file-selector-button {
 .iconeInstagram{
     width: 32px !important;
 }
+
+html{
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+}

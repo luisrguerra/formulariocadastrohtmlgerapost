@@ -31,10 +31,10 @@ function atualizarTamanhoInstagram(idInput, idTexto) {
       document.getElementById(idTexto).style.fontSize = "3.1rem";
     }
     else if(tamanhoTexto > 19 && tamanhoTexto < 25){
-      document.getElementById(idTexto).style.fontSize = "2.8rem";
+      document.getElementById(idTexto).style.fontSize = "2.4rem";
     }
     else{
-      document.getElementById(idTexto).style.fontSize = "2.3rem";
+      document.getElementById(idTexto).style.fontSize = "2rem";
     }
     document.getElementById(idTexto).innerHTML = texto;
   };

@@ -10,8 +10,11 @@ function atualizarTamanho(idInput, idTexto) {
   document.getElementById(idInput).onchange = function(){
     var texto = document.getElementById(idInput).value;
     var tamanhoTexto = texto.length;
-    if (tamanhoTexto < 150){
+    if (tamanhoTexto <= 150){
       document.getElementById(idTexto).style.fontSize = "58px";
+    }
+    else if(tamanhoTexto > 150 && tamanhoTexto < 250){
+      document.getElementById(idTexto).style.fontSize = "46px";
     }
     else{
       document.getElementById(idTexto).style.fontSize = "39px";

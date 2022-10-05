@@ -9,13 +9,14 @@ input[type=file]::file-selector-button {
     font-size: 16px;
     cursor: pointer;
 }
-.iconeCor{
-    font-size: 24px;
-}
 .iconeInstagram{
     width: 32px !important;
 }
 
+
+i.material-icons{
+    font-size: 24px;
+}
 html{
     font-family: "Roboto","Helvetica","Arial",sans-serif;
 }

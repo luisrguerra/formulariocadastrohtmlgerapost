@@ -25,7 +25,8 @@
 }
 /* Permitir a quebra de linha do texto */
 #descricaoView{
-  height: 9em;
+  font-size: 39px;
+  height: 390px;
   margin-right: 1em;
   white-space: pre-wrap;
   word-wrap: break-word;

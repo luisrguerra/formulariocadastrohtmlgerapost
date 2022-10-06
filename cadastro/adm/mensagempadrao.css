@@ -25,3 +25,11 @@
 .mensagemPadrao .material-icons{
     text-align: center;
 }
+
+.mensagemPadrao .card{
+    border-radius: 16px;
+}
+
+.card .card-action:last-child{
+    background: none;
+}

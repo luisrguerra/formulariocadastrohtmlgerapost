@@ -20,3 +20,7 @@ i.material-icons{
 html{
     font-family: "Roboto","Helvetica","Arial",sans-serif;
 }
+
+.btn, .btn-large, .btn-small, .btn-flat{
+    border-radius: 5px;
+}

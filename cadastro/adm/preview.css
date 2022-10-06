@@ -59,4 +59,5 @@
   height: fit-content;
   max-height: 15em;
   margin: auto;
+  border-radius: 12px;
 }

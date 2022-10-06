@@ -2,15 +2,22 @@ const app = firebase.initializeApp(firebaseConfig);
 
 function enviarFirebase(){
     console.log("oi");
-    let person = {
-        titulo: "Titulo",
-        nome: "João",
-        instagram: "@instagram",
-        fotoDePerfil: "none",
-        telefone: "00000",
-        temWhatsapp: "true"
+    let usuario = {
+        titulo: null,
+        nome: null,
+        instagram: null,
+        usarFoto: null,
+        telefone: null,
+        temWhatsapp: null,
     };
-    pushFirebase(JSON.stringify(person));
+    usuario.titulo = document.getElementById("inputTitulo").value;
+    usuario.nome = document.getElementById("inputNome").value;
+    usuario.instagram = document.getElementById("inputInstagram").value;
+    usuario.usarFoto = document.getElementById("usarFoto").value;
+    usuario.telefone = document.getElementById("inputTelefone").value;
+    usuario.temWhatsapp = document.getElementById("inputWhatsApp").value;
+
+    pushFirebase(JSON.stringify(usuario));
     console.log("tchau");
 };
 

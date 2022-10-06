@@ -21,7 +21,7 @@ function btnSalvar(){
 
 
 function btnSalvar2(id){
-  var elemento = document.getElementById("previewBox")
+  var elemento = document.getElementById(id)
   const zoom_tmp = elemento.style.zoom;
   elemento.style.zoom = "100%";
 

@@ -24,3 +24,12 @@ html{
 .btn, .btn-large, .btn-small, .btn-flat{
     border-radius: 5px;
 }
+
+#inputDescricao{
+    max-width: 22em;
+    zoom: 120%;
+    min-height: 5em;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    padding: 0.5rem;
+}

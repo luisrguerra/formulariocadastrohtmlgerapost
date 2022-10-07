@@ -18,6 +18,7 @@ function enviarFirebase(){
     usuario.temWhatsapp = document.getElementById("inputWhatsApp").value;
 
     usuarioKey = pushFirebase("usuarios",JSON.stringify(usuario));
+    updateFirebase("usuarios", usuarioKey,"oi");
     console.log("tchau");
 };
 
@@ -26,7 +27,7 @@ function pushFirebase(endereco,valor){
   return referencia.push(valor).key;
 };
 
-function updateFirebase(endereco,valor){
+function updateFirebase(endereco,chave,valor){
   const referencia = firebase.database().ref().child(endereco);
-  referencia.update(valor);
+  referencia.update(JSON.parse('{ "'+ chave + '" : "' + valor + '" }') );
 };

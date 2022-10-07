@@ -16,9 +16,9 @@ function enviarFirebase(){
     usuario.usarFoto = document.getElementById("usarFoto").value;
     usuario.telefone = document.getElementById("inputTelefone").value;
     usuario.temWhatsapp = document.getElementById("inputWhatsApp").value;
-
-    usuarioKey = pushFirebase("usuarios",JSON.stringify(usuario));
-    updateFirebase("usuarios", usuarioKey,"oi");
+    const usuarioJsonStr = JSON.stringify(usuario);
+    //usuarioKey = pushFirebase("usuarios",usuarioJsonStr);
+    updateFirebase("usuarios", "1",usuarioJsonStr);
     console.log("tchau");
 };
 
@@ -29,5 +29,8 @@ function pushFirebase(endereco,valor){
 
 function updateFirebase(endereco,chave,valor){
   const referencia = firebase.database().ref().child(endereco);
-  referencia.update(JSON.parse('{ "'+ chave + '" : "' + valor + '" }') );
+  const objeto = {
+      [chave] : valor,
+  };
+  referencia.update(objeto);
 };

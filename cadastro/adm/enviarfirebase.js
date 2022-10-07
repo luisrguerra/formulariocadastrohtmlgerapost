@@ -17,11 +17,16 @@ function enviarFirebase(){
     usuario.telefone = document.getElementById("inputTelefone").value;
     usuario.temWhatsapp = document.getElementById("inputWhatsApp").value;
 
-    pushFirebase(JSON.stringify(usuario));
+    usuarioKey = pushFirebase("usuarios",JSON.stringify(usuario));
     console.log("tchau");
 };
 
-function pushFirebase(texto){
- const referencia = firebase.database().ref();
- referencia.push(texto);
+function pushFirebase(endereco,valor){
+  const referencia = firebase.database().ref().child(endereco);
+  return referencia.push(valor).key;
+};
+
+function updateFirebase(endereco,valor){
+  const referencia = firebase.database().ref().child(endereco);
+  referencia.update(valor);
 };

@@ -17,14 +17,14 @@ function enviarFirebase(){
     usuario.telefone = document.getElementById("inputTelefone").value;
     usuario.temWhatsapp = document.getElementById("inputWhatsApp").value;
     const usuarioJsonStr = JSON.stringify(usuario);
-    //usuarioKey = pushFirebase("usuarios",usuarioJsonStr);
-    updateFirebase("usuarios", "1",usuarioJsonStr);
-    console.log(getFirebase("usuarios/1") );
+    let usuarioKey = pushFirebase("usuarios",usuarioJsonStr);
+    //updateFirebase("usuarios", "1",usuarioJsonStr);
+    console.log(getFirebase("usuarios/" + usuarioKey) );
     console.log("tchau");
 };
 
 function pushFirebase(endereco,valor){
-  const referencia = firebase.database().ref().child(endereco);
+  const referencia = firebase.database().ref(endereco);
   return referencia.push(valor).key;
 };
 
@@ -42,9 +42,7 @@ function getFirebase(endereco){
 };
 
 function updateFirebase(endereco,chave,valor){
-  const referencia = firebase.database().ref().child(endereco);
-  const objeto = {
-      [chave] : valor,
-  };
+  const referencia = firebase.database().ref(endereco);
+  const objeto = {[chave]:valor};
   referencia.update(objeto);
 };

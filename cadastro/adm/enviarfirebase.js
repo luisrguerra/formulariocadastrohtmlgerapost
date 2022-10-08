@@ -19,7 +19,7 @@ function enviarFirebase(){
     const usuarioJsonStr = JSON.stringify(usuario);
     let usuarioKey = pushFirebase("usuarios",usuarioJsonStr);
     //updateFirebase("usuarios", "1",usuarioJsonStr);
-    eraseFirebase("usuarios/1");
+    //eraseFirebase("usuarios/1");
     console.log(getFirebase("usuarios/" + usuarioKey) );
     console.log("tchau");
 };
@@ -50,5 +50,5 @@ function updateFirebase(endereco,chave,valor){
 
 function eraseFirebase(endereco){
   const referencia = firebase.database().ref(endereco);
-  referencia.set(null);
+  referencia.remove();
 };

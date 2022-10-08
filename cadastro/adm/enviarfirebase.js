@@ -19,12 +19,26 @@ function enviarFirebase(){
     const usuarioJsonStr = JSON.stringify(usuario);
     //usuarioKey = pushFirebase("usuarios",usuarioJsonStr);
     updateFirebase("usuarios", "1",usuarioJsonStr);
+    console.log(getFirebase("usuarios/1") );
     console.log("tchau");
 };
 
 function pushFirebase(endereco,valor){
   const referencia = firebase.database().ref().child(endereco);
   return referencia.push(valor).key;
+};
+
+function getFirebase(endereco){
+  const referencia = firebase.database().ref(endereco);
+  let valor;
+  
+  referencia.on('value', 
+  (snapshot) => {
+    valor = snapshot.val();
+  }
+  );
+  
+  return valor;
 };
 
 function updateFirebase(endereco,chave,valor){

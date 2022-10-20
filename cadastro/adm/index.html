@@ -42,38 +42,44 @@
 
     <h3 style="font-family: 'Bebas Neue', sans-serif;" class="left-align">classificados.unb</h3>
     <h5 style="font-family: 'Roboto', sans-serif;" class="left-align">Formulário de cadastro de anúncio</h5>
-    <br>
     
+    <br> <!--Pular linhas-->
+    
+    <!-- Form -->
     <!-- Configuração do envio das formações para o email atravéz do formsubmit.co -->
     <form id="formulario" target="_blank" action="https://formsubmit.co/luiseduardoribeiroguerra@gmail.com" method="POST" enctype="multipart/form-data">
       
+      <!--Titulo input-->
       <h6 class="left-align">Título do anúncio:</h6>
-      <input id="inputTitulo" type="text" name="Título" class="input-field" placeholder="Ex: Procura-se professor de matemática" maxlength = "35" required>
+      <input id="inputTitulo" type="text" name="Título" class="input-field" placeholder="Ex: Procura-se professor de matemática" maxlength = "35">
       
+      <!--Nome input-->
       <h6 class="left-align">Seu nome (nome completo):</h6>
-      <input id="inputNome" type="text" name="Nome" class="input-field" placeholder="Ex: Alberto Santos Dumont" maxlength = "35" required>
+      <input id="inputNome" type="text" name="Nome" class="input-field" placeholder="Ex: Alberto Santos Dumont" maxlength = "35">
       
+      <!--Instagram input-->
       <h6 class="left-align">Seu instagram:</h6>
-      
       <div class="input-field">
         <img class="prefix iconeInstagram" src="img/instagram.svg">
-        <input id="inputInstagram" name="Instagram" type="text" placeholder="Ex: @classificados.unb" maxlength = "30" required>
+        <input id="inputInstagram" name="Instagram" type="text" placeholder="Ex: @classificados.unb" maxlength = "30">
       </div>
-
+      
+      <!--Usar foto checkbox-->
       <p>
         <label>
           <input id="usarFoto" type="checkbox" name="Foto Instagram" class="filled-in" checked="checked" />
           <span>Usar a foto de perfil do instagram</span>
         </label>
       </p>
-      
+
+      <!--Telefone input-->
       <h6 class="left-align">Número de telefone (opcional):</h6>
-      
       <div class="input-field">
         <i class="material-icons prefix">phone</i>
         <input id="inputTelefone" name="Telefone" type="text" placeholder="Ex: (00) 0000-0000" maxlength = "19">
       </div>
-
+      
+      <!--Tem WhatsApp Checkbox-->
       <p>
         <label>
           <input id="inputWhatsApp" type="checkbox" name="WhatsApp" class="filled-in"/>
@@ -81,10 +87,11 @@
         </label>
       </p>
 
-
+      <!--Selecionar cor de fundo-->
       <h6 class="left-align">Cor de fundo na postagem:</h6>
       <!-- Opções de cores, seleção tipo radio -->
       <div id="coresRadio">
+        <!--Fuundo branco-->
         <p>
         <label>
           <input class="with-gap" name="cor" value="Branco" type="radio"/>
@@ -130,31 +137,39 @@
       </div>
       <!-- Fim de opções de cores, seleção tipo radio -->
 
-
+      <!--Descrição input texto longo-->
       <h6 class="left-align">Descrição do seu anúncio:</h6>
-      <textarea id="inputDescricao" placeholder="Ex: Olá, estou procurando..." class="materialize-textarea" name="Descricao" maxlength = "380" required></textarea>
-      
+      <textarea id="inputDescricao" placeholder="Ex: Olá, estou procurando..." class="materialize-textarea" name="Descricao" maxlength = "380"></textarea>
       <br>
+
+      <!--Carregar foto input tipo arquivo-->
       <h6 class="left-align">Carregar uma foto sua (opcional):</h6>
       <input id="inputImagem" type="file" name="anexo" accept="image/png, image/jpeg">
       
+      <br> <!--Pular linhas-->
       <br>
-      <br>
-      <h6 class="left-align">Alguma sugestão para o classificados.unb? Respondendo, você nos retribui ajudando a melhorar o projeto.</h6>
-      <textarea placeholder="Ex: Poderia melhorar..." class="materialize-textarea" name="Sugestao" rows="10" required></textarea>
       
+      <!-- Input sugestão -->
+      <h6 class="left-align">Alguma sugestão para o classificados.unb? Respondendo, você nos retribui ajudando a melhorar o projeto.</h6>
+      <textarea placeholder="Ex: Poderia melhorar..." class="materialize-textarea" name="Sugestao" rows="10"></textarea>
+      
+      <!--Título do email recebido-->
       <input type="hidden" name="_subject" value="Novo cadastro">
 
       <!-- Redirecionamento de site após o formulário ser enviado -->
       <input type="hidden" name="_next" value="https://luisrguerra.github.io/formulariocadastrohtmlgerapost/cadastro/concluido/">
       
+      <!-- Não utilizar captcha na api de enviar email -->
       <input type="hidden" name="_captcha" value="false">
       
-      <br>
+      <br> <!--Pular linhas-->
       <br>
   
       <h5 class="left-align">Pré-visualização:</h5>
-      <br>
+
+      <br> <!--Pular linhas-->
+      
+      <!-- Pré-visualização da postagem gerada -->
       <center>
         <div id="previewBox">
           <div class="ajustesTextoPreview">
@@ -189,7 +204,7 @@
         </div>
       </center>
 
-      <br>
+      <br> <!--Pular linhas-->
       <br>
       <br> 
 
@@ -197,16 +212,20 @@
         Firebase
         <i class="material-icons right">local_fire_department</i>
       </button>
+
+      <br> <!--Pular linhas-->
       <br>
       <br>
-      <br>
+
       <button type="submit" style="margin-bottom: 1em;" class="btn waves-effect waves-light  indigo accent-3 right">
         Enviar
         <i class="material-icons right">email</i>
       </button>
+
+      <br> <!--Pular linhas-->
       <br>
       <br>
-      <br>
+
       <button onclick="btnSalvar2('previewBox')" class="btn waves-effect waves-light  indigo accent-3 right">
         Salvar
         <i class="material-icons right">download</i>
@@ -239,6 +258,7 @@
       </div>
       <!-- fim caixa de dialogo copiar mensagem padrão -->
       
+      <!--Carregar Scripts-->
       <script src="funcoesautomatico.js"></script>
       <script src="automatico.js"></script>
       <script src="renderizar.js"></script>

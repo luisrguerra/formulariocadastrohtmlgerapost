@@ -48,17 +48,21 @@ document.getElementById('coresRadio').onchange = function(){
 
 //Atualização automatica da foto de perfil
 document.getElementById("inputImagem").onchange = function(){
-     let foto = document.getElementById('imagemPerfil');
-     let leitor = new FileReader();
-     leitor.readAsDataURL(event.target.files[0]);
-     leitor.onload = function() {
-       foto.src = leitor.result; // data url
-     };
-     foto.onload = function() {
-       URL.revokeObjectURL(foto.src) // free memory
-     }
+  atualizarFotoStatico();
 }
 //Fim da atualização automatica da foto de perfil
+
+function atualizarFotoStatico(){
+  let foto = document.getElementById('imagemPerfil');
+  let leitor = new FileReader();
+  leitor.readAsDataURL(event.target.files[0]);
+  leitor.onload = function() {
+    foto.src = leitor.result; // data url
+  };
+  foto.onload = function() {
+    URL.revokeObjectURL(foto.src) // free memory
+  }
+}
 
 
 //Mudar na área de contato se é whatsapp ou telefone       

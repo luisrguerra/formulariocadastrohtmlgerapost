@@ -11,23 +11,28 @@ function atualizarConteudoStatico(idInput, idTexto) {
   document.getElementById(idTexto).innerHTML = texto;
 };
 
-//Atualização automática do texto de acordo com o valor inserido no input de descrição
-//com ajuste de tamanho
+//Atualização automática de descrição
 function atualizarTamanho(idInput, idTexto) {
-    document.getElementById(idInput).onchange = function(){
-      var texto = document.getElementById(idInput).value;
-      var tamanhoTexto = texto.length;
-      if (tamanhoTexto <= 150){
-        document.getElementById(idTexto).style.fontSize = "58px";
-      }
-      else if(tamanhoTexto > 150 && tamanhoTexto < 250){
-        document.getElementById(idTexto).style.fontSize = "46px";
-      }
-      else{
-        document.getElementById(idTexto).style.fontSize = "39px";
-      }
-      document.getElementById(idTexto).innerHTML = texto;
-    };
+  document.getElementById(idInput).onchange = function(){
+    atualizarTamanhoStatico(idInput, idTexto);
+  };
+};
+
+//Atualização do texto de acordo com o valor inserido no input de descrição
+//com ajuste de tamanho
+function atualizarTamanhoStatico(idInput, idTexto) {
+  var texto = document.getElementById(idInput).value;
+  var tamanhoTexto = texto.length;
+  if (tamanhoTexto <= 150){
+    document.getElementById(idTexto).style.fontSize = "58px";
+  }
+  else if(tamanhoTexto > 150 && tamanhoTexto < 250){
+    document.getElementById(idTexto).style.fontSize = "46px";
+  }
+  else{
+    document.getElementById(idTexto).style.fontSize = "39px";
+  }
+  document.getElementById(idTexto).innerHTML = texto;
 };
 
 //Atualização automática do texto de acordo com o valor inserido no input de instagram

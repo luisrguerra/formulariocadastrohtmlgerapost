@@ -39,17 +39,21 @@ function atualizarTamanhoStatico(idInput, idTexto) {
 //com ajuste de tamanho
 function atualizarTamanhoInstagram(idInput, idTexto) {
     document.getElementById(idInput).onchange = function(){
-      var texto = document.getElementById(idInput).value;
-      var tamanhoTexto = texto.length;
-      if (tamanhoTexto <= 19){
-        document.getElementById(idTexto).style.fontSize = "3.1rem";
-      }
-      else if(tamanhoTexto > 19 && tamanhoTexto < 25){
-        document.getElementById(idTexto).style.fontSize = "2.4rem";
-      }
-      else{
-        document.getElementById(idTexto).style.fontSize = "2rem";
-      }
-      document.getElementById(idTexto).innerHTML = texto;
+      atualizarTamanhoInstagramStatico(idInput, idTexto);
     };
+};
+
+function atualizarTamanhoInstagramStatico(idInput, idTexto) {
+  var texto = document.getElementById(idInput).value;
+  var tamanhoTexto = texto.length;
+  if (tamanhoTexto <= 19){
+    document.getElementById(idTexto).style.fontSize = "3.1rem";
+  }
+  else if(tamanhoTexto > 19 && tamanhoTexto < 25){
+    document.getElementById(idTexto).style.fontSize = "2.4rem";
+  }
+  else{
+    document.getElementById(idTexto).style.fontSize = "2rem";
+  }
+  document.getElementById(idTexto).innerHTML = texto;
 };

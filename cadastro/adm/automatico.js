@@ -8,6 +8,7 @@ function atualizarBotao(){
   atualizarConteudoStatico("inputNome","nomeView");
   atualizarTamanhoStatico("inputDescricao","descricaoView");
   atualizarTamanhoInstagramStatico("inputInstagram","instagramView");
+  atualizarWhatsAppStatico("inputWhatsApp","idTelefoneTitulo");
 }
 
 
@@ -67,29 +68,36 @@ function atualizarFotoStatico(){
 
 //Mudar na área de contato se é whatsapp ou telefone       
 document.getElementById("inputWhatsApp").onchange = function(){
- if (document.getElementById("inputWhatsApp").checked == true){
-   document.getElementById("idTelefoneTitulo").innerHTML = "WhatsApp:";
- }
- else{
-   document.getElementById("idTelefoneTitulo").innerHTML = "Telefone:";
- }
-}
-//Fim de mudar na área de contato se é whatsapp ou telefone  
+  atualizarWhatsAppStatico("inputWhatsApp","idTelefoneTitulo");
+};
+//Fim de mudar na área de contato se é whatsapp ou telefone 
+
+function atualizarWhatsAppStatico(idInput,idTexto){
+  if (document.getElementById(idInput).checked == true){
+    document.getElementById(idTexto).innerHTML = "WhatsApp:";
+  }
+  else{
+    document.getElementById(idTexto).innerHTML = "Telefone:";
+  };
+};
 
 //Atualizar número de telefone na preview
 document.getElementById("inputTelefone").onchange = function(){
-  
+  atualizarTelefoneStatico("inputTelefone","telefoneView");
+}
+//Fim de atualizar número de telefone
+
+function atualizarTelefoneStatico(idInput,idTexto){
   //inserir dados do input na preview
-  telefone = document.getElementById("inputTelefone").value;
-  document.getElementById("telefoneView").innerHTML = telefone;
+  telefone = document.getElementById(idInput).value;
+  document.getElementById(idTexto).innerHTML = telefone;
   
   //Esconder título na preview se o campo estiver vázio
   tituloTelefone = document.getElementById("idTelefoneTitulo");
-  if (document.getElementById("inputTelefone").value.length > 0){
+  if (document.getElementById(idInput).value.length > 0){
    tituloTelefone.style.display = "inherit";
   }
   else{
    tituloTelefone.style.display = "none";
-  }
+  };
 }
-//Fim de atualizar número de telefone

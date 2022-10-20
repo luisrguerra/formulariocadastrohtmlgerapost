@@ -1,10 +1,11 @@
-//Atualização automática do texto de acordo com o valor inserido no input
+//Atualização automática do texto
 function atualizarConteudo(idInput, idTexto) {
     document.getElementById(idInput).onchange = function(){
       atualizarConteudoStatico(idInput, idTexto);
     };
 };
 
+//Atualização do texto de acordo com o valor inserido no input
 function atualizarConteudoStatico(idInput, idTexto) {
   var texto = document.getElementById(idInput).value;
   document.getElementById(idTexto).innerHTML = texto;

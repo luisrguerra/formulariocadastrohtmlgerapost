@@ -1,9 +1,13 @@
 //Atualização automática do texto de acordo com o valor inserido no input
 function atualizarConteudo(idInput, idTexto) {
     document.getElementById(idInput).onchange = function(){
-      var texto = document.getElementById(idInput).value;
-      document.getElementById(idTexto).innerHTML = texto;
+      atualizarConteudoStatico(idInput, idTexto);
     };
+};
+
+function atualizarConteudoStatico(idInput, idTexto) {
+  var texto = document.getElementById(idInput).value;
+  document.getElementById(idTexto).innerHTML = texto;
 };
 
 //Atualização automática do texto de acordo com o valor inserido no input de descrição

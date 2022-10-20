@@ -43,6 +43,8 @@ function atualizarTamanhoInstagram(idInput, idTexto) {
     };
 };
 
+//Atualização do texto do instagram de acordo com o valor inserido 
+//no input de instagram com ajuste de tamanho
 function atualizarTamanhoInstagramStatico(idInput, idTexto) {
   var texto = document.getElementById(idInput).value;
   var tamanhoTexto = texto.length;

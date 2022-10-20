@@ -3,6 +3,13 @@ atualizarConteudo("inputNome","nomeView");
 atualizarTamanho("inputDescricao","descricaoView");
 atualizarTamanhoInstagram("inputInstagram","instagramView");
 
+function atualizarBotao(){
+  atualizarConteudoStatico("inputTitulo","tituloView");
+  atualizarConteudoStatico("inputNome","nomeView");
+  atualizarTamanhoStatico("inputDescricao","descricaoView");
+  atualizarTamanhoInstagramStatico("inputInstagram","instagramView");
+}
+
 
 //Alteração da cor de fundo da pré-visualização
 document.getElementById('coresRadio').onchange = function(){
@@ -52,6 +59,8 @@ document.getElementById("inputImagem").onchange = function(){
      }
 }
 //Fim da atualização automatica da foto de perfil
+
+
 //Mudar na área de contato se é whatsapp ou telefone       
 document.getElementById("inputWhatsApp").onchange = function(){
  if (document.getElementById("inputWhatsApp").checked == true){
